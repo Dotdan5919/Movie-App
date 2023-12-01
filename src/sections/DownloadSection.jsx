@@ -8,7 +8,7 @@ const DownloadSection = () => {
     <img src={phone} alt="" srcset="" className='w-96' />
 
 
-    <div className="flex flex-col gap-2 sm:text-left text-white w-[40%]">
+    <div className="flex flex-col gap-2 sm:text-left text-white text-center w-full sm:w-[30%]">
     <h1 className='text-[50px] font-bold'>Download your shows to watch offline</h1>
     <p className='text-[20px]'>Save your favorites easily and always have something to watch.</p>
     

@@ -6,7 +6,14 @@ module.exports = {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+
+        'signin':'url()'
+      }
+
+
+    },
   },
   plugins: [],
 }
