@@ -8,6 +8,7 @@ import Basic from '../assets/images/Basic.jpg'
 import Standard from '../assets/images/Standard.jpg'
 
 import Premium from '../assets/images/Premium.jpg'
+import { NavLink } from 'react-router-dom'
 
 
 const SignupPage = () => {
@@ -286,7 +287,8 @@ memebership and charge the membership fee(currently {}) to your payment method u
 
 
 
-<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(4)}}>Start membership</button>
+<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(4)}}><NavLink to="/homepage">
+Start membership</NavLink></button>
 
 
 </motion.div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import EnjoyImage from '../assets/images/2150866083.jpg'
+import EnjoyImage from '../../assets/images/2150866083.jpg'
 const EnjoySection = () => {
   return (
     <div className='w-full bg-black flex sm:flex-row flex-col gap-20 relative items-center justify-center sm:p-10 leading-tight p-10'>

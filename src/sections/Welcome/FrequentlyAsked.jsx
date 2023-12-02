@@ -1,5 +1,5 @@
 import React from 'react'
-import MiniDropDown from '../components/MiniDropDown'
+import MiniDropDown from '../../components/MiniDropDown'
 import { IoIosArrowForward } from 'react-icons/io'
 
 const FrequentlyAsked = () => {

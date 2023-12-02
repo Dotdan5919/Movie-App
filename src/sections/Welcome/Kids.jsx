@@ -1,5 +1,5 @@
 import React from 'react'
-import Kids from '../assets/images/kids.png'
+import Kids from '../../assets/images/kids.png'
 
 const kids = () => {
   return (

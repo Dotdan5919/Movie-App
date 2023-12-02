@@ -1,6 +1,6 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-import bgImage from '../assets/images/dark-vip-cinema-studio-still-life.jpg'
+import NavBar from '../../components/NavBar'
+import bgImage from '../../assets/images/dark-vip-cinema-studio-still-life.jpg'
 import { IoIosArrowForward } from "react-icons/io";
 import { motion } from 'framer-motion';
 

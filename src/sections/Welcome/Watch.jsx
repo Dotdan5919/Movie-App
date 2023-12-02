@@ -1,5 +1,5 @@
 import React from 'react'
-import laptop from '../assets/images/watch on laptop.png'
+import laptop from '../../assets/images/watch on laptop.png'
 
 const Watch = () => {
   return (

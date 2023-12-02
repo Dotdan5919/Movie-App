@@ -1,11 +1,11 @@
 import React from 'react'
-import Hero from '../sections/Hero'
-import EnjoySection from '../sections/EnjoySection'
-import DownloadSection from '../sections/DownloadSection'
-import Watch from '../sections/Watch'
-import Kids from '../sections/Kids'
-import FrequentlyAsked from '../sections/FrequentlyAsked'
-import FooterSection from '../sections/FooterSection'
+import Hero from '../sections/Welcome/Hero'
+import EnjoySection from '../sections/Welcome/EnjoySection'
+import DownloadSection from '../sections/Welcome/DownloadSection'
+import Watch from '../sections/Welcome/Watch'
+import Kids from '../sections/Welcome/Kids'
+import FrequentlyAsked from '../sections/Welcome/FrequentlyAsked'
+import FooterSection from '../sections/Welcome/FooterSection'
 
 
 const WelcomePage = () => {

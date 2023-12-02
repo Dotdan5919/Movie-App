@@ -6,6 +6,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import RootLayout from './layout/RootLayout';
 import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
+import HomePage from './pages/HomePage';
 
 
 const router=createBrowserRouter(
@@ -18,7 +19,7 @@ const router=createBrowserRouter(
   <Route path='/' index element={<WelcomePage/>}/>
   <Route path='/signin'  element={<SigninPage/>}/>
   <Route path='/signup'  element={<SignupPage/>}/>
-  <Route path='/signup'  element={<SignupPage/>}/>
+  <Route path='/homepage'  element={ <HomePage/>  }/>
 
 
   

@@ -1,5 +1,5 @@
 import React from 'react'
-import phone from '../assets/images/phone.png'
+import phone from '../../assets/images/phone.png'
 
 const DownloadSection = () => {
   return (
