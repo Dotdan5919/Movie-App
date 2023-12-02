@@ -5,6 +5,7 @@ import WelcomePage from './pages/WelcomePage';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from './layout/RootLayout';
 import SigninPage from './pages/SigninPage';
+import SignupPage from './pages/SignupPage';
 
 
 const router=createBrowserRouter(
@@ -16,11 +17,10 @@ const router=createBrowserRouter(
 
   <Route path='/' index element={<WelcomePage/>}/>
   <Route path='/signin'  element={<SigninPage/>}/>
+  <Route path='/signup'  element={<SignupPage/>}/>
+  <Route path='/signup'  element={<SignupPage/>}/>
 
-  
-  
-  
-  
+
   
   </Route>
   )

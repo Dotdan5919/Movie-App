@@ -1,5 +1,6 @@
 import React from 'react'
 import MotionInput from './MotionInput'
+import { NavLink } from 'react-router-dom'
 
 const LoginForm = () => {
   return (
@@ -9,22 +10,22 @@ const LoginForm = () => {
 
  
 
-<MotionInput type="Email" name="Email Address"/>
-<MotionInput type="password" name="Password"/>
+<MotionInput type="Email" name="Email Address" color="black"/>
+<MotionInput type="password" name="Password" color="black"/>
 
 
 <button className='grid f row-start-5  bg-red-600 hover:bg-red-800 rounded-md justify-center items-center'>Submit</button>
-<div className="flex justify-between row-start-6">
-<div>
+<div className="flex justify-between items-center row-start-6">
+<div className='flex gap-2 justify-center items-center'>
 <input type="checkbox" name="Remember me" id="" />
-<label>Remember me</label>
+<label name="Remember me">Remember me</label>
 </div> 
 
 <div>
 Need help?</div>
 </div>
 
-<p className='row-start-7'>New on Moplay? Signup  </p>
+<p className='row-start-7'>New on Moplay? <NavLink to="/signup">Signup</NavLink>   </p>
 
 
 
