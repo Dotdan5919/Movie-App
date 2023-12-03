@@ -11,7 +11,7 @@ const Hero = () => {
 <NavBar logo="white"/>
 <img src={bgImage} alt=""  className='w-full h-full top-0 left-0 absolute z-[0] opacity-40'/>
 <div className="flex flex-col items-center justify-center h-full p-10 mt-[80px] z-[2] relative text-center gap-5 ">
-<motion.h1 className='text-white font-bold sm:text-[100px] text-[60px] leading-tight ' initial={{opacity:0,x:100}} animate={{opacity:1,x:0,delay:3,type:'spring'}}>Unlimited, movies and TV shows</motion.h1>
+<motion.h1 className='text-white font-bold sm:text-[70px] text-[60px] leading-tight ' initial={{opacity:0,x:100}} animate={{opacity:1,x:0,delay:3,type:'spring'}}>Unlimited, movies and TV shows</motion.h1>
 <p className='text-white sm:text-[40px] text-[25px] leading-tight '>Bring thearters to you home</p>
 <p className='text-white'>Ready to watch? Enter your email to create or restart your membership.</p>
 <form>
