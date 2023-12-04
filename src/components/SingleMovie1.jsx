@@ -25,6 +25,7 @@ useEffect(()=>
 setTimeout(() => {
   
     setplayVideo(true);
+    setIsClicked(props.id);
 
 }, 5000);
 
@@ -36,14 +37,19 @@ setTimeout(() => {
   
     // const source=require(props.src);
   return (
-    <motion.div className='text-white w-[150px] shadow-lg'  variants={variant}   initial="initial" animate={isClicked===props.id?"animate":"initial"} onClick={()=>{props.clicker(props.id); isClicked===props.id?setIsClicked(null):setIsClicked(props.id);handlePlay()}}  >
+    <motion.div className='text-white w-[150px] shadow-lg flex flex-col gap-2 h-full'   variants={variant}   initial="initial" animate={isClicked===props.id?"animate":"initial"} onClick={()=>{props.clicker(props.id); isClicked===props.id?setIsClicked(null):setIsClicked(props.id);handlePlay()}}  >
       
     <img src={props.src} alt="" className='w-[150px] h-[230px]'/>
     
     
     {props.name}
 
+
+    {     videocontoller===props.id?<motion.div className='w-20 h-[2px] rounded-md bg-red-600' initial={{scale:1,translateX:'40px'}} animate={{scale:1,translateX:'0px'}} transition={{duration:.9}}  ></motion.div>:"" }
+
+
     </motion.div>
+      
   )
 }
 

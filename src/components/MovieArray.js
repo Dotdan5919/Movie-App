@@ -1,7 +1,35 @@
 import Joker from '../assets/images/joker.jpg';
 import Avengers from '../assets/images/end game.jpeg';
 import MissionImpossible from '../assets/images/mi.jpg';
-import React from 'react';
+import React, { useEffect } from 'react';
+
+
+
+
+
+
+let result;
+
+    const fetchData = async () => {  const url = 'https://online-movie-database.p.rapidapi.com/title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '2e41da2e9emsh5052f0589b6ce86p13a5c8jsn2018eab824dd',
+		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+     result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+ 
+}
+
+fetchData();
 
 
 
@@ -35,6 +63,33 @@ export const Moviearray = ()=>
     VideoSource:require("../assets/videos/Mission-Impossible.mp4"),
     id:3,
     MovieThumbnail:require("../assets/images/MIthumbnail.jpeg"),
+    Description:"Ethan Hunt, a secret agent working for the Impossible Missions Force (IMF), is framed for the bombing of the American embassy in Prague.He must find the real bomber and clear his name, even if it means going rogue and defying his own agency.Along the way, he picks up a team of skilled operatives, including Luther Stickell, a computer expert, and Benji Dunn, a master thief."
+
+},
+{
+    MovieName:'Squid Games',
+    Source:require("../assets/images/SquidGames.jpg"),
+    VideoSource:require("../assets/videos/SquidGames.mp4"),
+    id:4,
+    MovieThumbnail:require("../assets/images/SquidGamesT.jpg"),
+    Description:"Squid Game is a South Korean survival drama that follows contestants participating in deadly children's games for a chance to win a massive cash prize. "
+
+},
+{
+    MovieName:'The Lion King',
+    Source:require("../assets/images/LionKing.png"),
+    VideoSource:require("../assets/videos/LionKing.mp4"),
+    id:5,
+    MovieThumbnail:require("../assets/images/LionKingThumbnail.jpg"),
+    Description:"The Lion King is a classic Disney animated film that tells the tale of Simba, a young lion cub, navigating the circle of life as he learns about responsibility and the true meaning of leadership. Filled with memorable characters and a powerful soundtrack, the movie is a timeless adventure of love, loss, and self-discovery on the majestic plains of the African savannah."
+
+},
+{
+    MovieName:'Spiderman (miles morales)',
+    Source:require("../assets/images/spidermanposter.jpg"),
+    VideoSource:require("../assets/videos/Spiderman.mp4"),
+    id:6,
+    MovieThumbnail:require("../assets/images/spiderman.jpg"),
     Description:"Ethan Hunt, a secret agent working for the Impossible Missions Force (IMF), is framed for the bombing of the American embassy in Prague.He must find the real bomber and clear his name, even if it means going rogue and defying his own agency.Along the way, he picks up a team of skilled operatives, including Luther Stickell, a computer expert, and Benji Dunn, a master thief."
 
 },
