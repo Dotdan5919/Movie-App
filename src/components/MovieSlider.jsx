@@ -5,12 +5,14 @@ import SingleMovie1 from './SingleMovie1'
 
 import { Moviearray } from './MovieArray'
 import { click } from '@testing-library/user-event/dist/click'
+import { useContext } from 'react'
+import { HomeContext } from '../Contexts/HomeContext'
 
 
 const MovieSlider = (prop) => {
 
     const [movieArray,setMovieArray]=useState(Moviearray)
-    const [videoController,setVideoController]=useState()
+    const{videocontoller,setVideoController,movies,setmovies}=useContext(HomeContext);
     
 
 

@@ -7,6 +7,7 @@ import RootLayout from './layout/RootLayout';
 import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
 import HomePage from './pages/HomePage';
+import Gridpractice from './sections/Home/Gridpractice'
 
 
 const router=createBrowserRouter(
@@ -20,6 +21,8 @@ const router=createBrowserRouter(
   <Route path='/signin'  element={<SigninPage/>}/>
   <Route path='/signup'  element={<SignupPage/>}/>
   <Route path='/homepage'  element={ <HomePage/>  }/>
+  <Route path='/gridpractice'  element={ <Gridpractice/>  }/>
+
 
 
   
