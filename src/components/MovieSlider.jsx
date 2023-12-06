@@ -47,7 +47,7 @@ const MovieSlider = (prop) => {
       
     <div className="flex flex-col h-fit gap-5 col-start-4 row-start-3 w-fit  bg-opacity-10 relative" >
     <h1 className='text-white font-bold'>Hot movies</h1>
-    <div className='w-[900px]  grid grid-flow-col relative gap-7 h-fit p-7 overflow-scroll' id="slider">
+    <div className='w-[900px]  grid grid-flow-col relative gap-7 h-fit p-10 overflow-scroll' id="slider">
     {
 
         movieArray.map((e)=>{
@@ -65,7 +65,7 @@ const MovieSlider = (prop) => {
     
     
     
-
+<div className='w-40 p-7 '></div>
 
     
 

@@ -9,6 +9,9 @@ import React, { useEffect } from 'react';
 
 
 let result;
+let JON;
+
+let Array=[];
 
     const fetchData = async () => {  const url = 'https://online-movie-database.p.rapidapi.com/title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US';
 const options = {
@@ -22,7 +25,17 @@ const options = {
 try {
 	const response = await fetch(url, options);
      result = await response.text();
-	console.log(result);
+    //  result = await response.json();
+    const JON=JSON.parse(result);
+    const newJON=Object.entries(JON);
+        Array.push(...newJON)
+
+	console.log(Array.length);
+	
+   
+
+
+
 } catch (error) {
 	console.error(error);
 }
@@ -30,6 +43,38 @@ try {
 }
 
 fetchData();
+
+const fetchData2 = async (x) => {
+   const url = 'https://online-movie-database.p.rapidapi.com'+x;
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '2e41da2e9emsh5052f0589b6ce86p13a5c8jsn2018eab824dd',
+		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+	}
+};
+
+const response = await fetch(url, options);
+     result = await response.text();
+    //  result = await response.json();
+    const Val=JSON.parse(result);
+    const newVal=Object.entries(Val);
+    console.log(newVal)
+
+
+
+}
+
+Array.map((e)=>
+
+
+
+{
+
+
+ console.log("hi");
+
+})
 
 
 

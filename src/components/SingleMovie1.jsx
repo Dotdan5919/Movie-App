@@ -12,27 +12,32 @@ const SingleMovie1 = (props) => {
 
   const handlePlay=()=>
   {
+    
 
-   PlayVideo?setplayVideo(false):setplayVideo(true);
+   setplayVideo(!PlayVideo);
   
 
   }
+ 
   
 useEffect(()=>
 
 
 {
-setTimeout(() => {
+  let timeoutId;
+
+  
+  timeoutId=setTimeout(() => {
   
     setplayVideo(true);
-    setIsClicked(props.id);
+    // setIsClicked(props.id);
 
 }, 5000);
 
 
+return ()=>clearTimeout(timeoutId); //Clears timeout
 
-
-},[])
+})
 
   
     // const source=require(props.src);

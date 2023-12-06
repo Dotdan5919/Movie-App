@@ -2,12 +2,13 @@ import React from 'react'
 import NavBarLoggedIn from '../components/NavBarLoggedIn'
 import HomeHero from '../sections/Home/HomeHero'
 import { useEffect } from 'react'
+import LeftoffSection from '../sections/Home/LeftoffSection'
 const HomePage = () => {
 
   useEffect(() => {
     // const fetchData = async () => {
     //   // const url = 'https://moviesdatabase.p.rapidapi.com/titles/series/%7BseriesId%7D';
-    //   const url = 'https://moviesdatabase.p.rapidapi.com/titles/search/keyword/avenger';
+    //   const url = 'https://moviesdatabase.p.rapidapi.com/titles/tt13287846';
 
     //   const options = {
     //     method: 'GET',
@@ -41,6 +42,7 @@ const HomePage = () => {
 
 <HomeHero/>
 
+<LeftoffSection/>
     
     </div>
   )

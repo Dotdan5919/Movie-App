@@ -7,7 +7,7 @@ import RootLayout from './layout/RootLayout';
 import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
 import HomePage from './pages/HomePage';
-import Gridpractice from './sections/Home/Gridpractice'
+
 
 
 const router=createBrowserRouter(
