@@ -3,6 +3,8 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn'
 import HomeHero from '../sections/Home/HomeHero'
 import { useEffect } from 'react'
 import LeftoffSection from '../sections/Home/LeftoffSection'
+import SinceYouWatched from '../sections/Home/SinceYouWatched'
+import Watchlist from '../sections/Home/Watchlist'
 const HomePage = () => {
 
   useEffect(() => {
@@ -43,6 +45,8 @@ const HomePage = () => {
 <HomeHero/>
 
 <LeftoffSection/>
+<SinceYouWatched/>
+<Watchlist/>
     
     </div>
   )

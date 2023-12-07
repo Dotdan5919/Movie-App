@@ -71,7 +71,7 @@ const MovieSlider = (prop) => {
 
     
     </div>
-    <div className="absolute flex gap-2   text-[30px]  text-white -bottom-10 pt-2 bg-red-500 bg-opacity-10 w-fit">
+    <div className="absolute flex gap-2   text-[30px]  text-white -bottom-10 pt-2 bg-red-500 bg-opacity-10 w-fit z-[999]">
     <IoIosArrowDropleftCircle   onClick={()=>handleClick("left")}  className='hover:shadow-sm hover:text-red-400'/>
     <IoIosArrowDroprightCircle   onClick={()=>handleClick("right")}  className='hover:shadow-sm hover:text-red-400'/>
       
