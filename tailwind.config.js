@@ -9,7 +9,11 @@ module.exports = {
     extend: {
       backgroundImage:{
 
-        'signin':'url(/src/assets/images/signinbg.jpg)'
+        "signin":"url(/src/assets/images/signinbg.jpg)",
+        "moviecollage":"url(/src/assets/images/MovieCollage.jpg)",
+
+       
+      
       }
 
 

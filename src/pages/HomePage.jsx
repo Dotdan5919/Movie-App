@@ -6,6 +6,8 @@ import LeftoffSection from '../sections/Home/LeftoffSection'
 import SinceYouWatched from '../sections/Home/SinceYouWatched'
 import Watchlist from '../sections/Home/Watchlist'
 import { WatchlistContext } from '../Contexts/WatchListContext'
+import Explore from '../sections/Home/Explore'
+import Genre from '../sections/Home/Genre'
 const HomePage = () => {
 
 
@@ -70,6 +72,8 @@ const HomePage = () => {
 <LeftoffSection/>
 <SinceYouWatched/>
 <Watchlist/>
+<Explore/>
+<Genre/>
 
 </WatchlistContext.Provider>  
     </div>

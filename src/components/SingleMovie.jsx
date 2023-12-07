@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
 import { WatchlistContext } from '../Contexts/WatchListContext';
 import { json } from 'react-router-dom';
+import { buildTransform } from 'framer-motion';
 
 const SingleMovie = (props) => {
     const[fav,setfav]=useState(false);
+    const[New,setNew]=useState(false);
+
     const {WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}=useContext(WatchlistContext);
     const newValue={
       Title:props.name,
@@ -109,7 +112,13 @@ useEffect(()=>
   {
 
     setfav(true);
-    console.log("i an here");
+   
+  }
+
+  if(parseInt(props.year)>2021)
+  {
+setNew(true);
+
   }
 
   // console.log(JSON.parse(localStorage.getItem('WatchListArray')))
@@ -120,8 +129,8 @@ useEffect(()=>
 
 
   return (
-    <div className=' w-52 h-[320px] relative hover:scale-110 '>
-
+    <div className=' w-52 h-[320px] relative hover:scale-110 mb-4  transition-all duration-700'>
+    {New?(<button className='bg-red-700 p-2  absolute shadow-lg text-white text-xs right-3 top-4 rounded-lg'>New</button>):""}
 
     <img src={props.image} alt="" className=' w-96  h-full object-cover' />
       
