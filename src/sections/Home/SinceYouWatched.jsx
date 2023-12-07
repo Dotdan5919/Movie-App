@@ -22,7 +22,7 @@ try {
 
      setSinceYouWatchedArray(result.Search);
 
-  console.log(SinceYouWatchedArray);
+ 
   
  
 
@@ -36,7 +36,7 @@ try {
 fetchData();
 
 
-})
+},[])
   return (
     <div className=' flex flex-col p-10 gap-7 '>
     <h1 className='text-white font-bold text-lg'>Since you watched John Wick</h1>
@@ -44,7 +44,7 @@ fetchData();
     {SinceYouWatchedArray.map((e)=>{
 
 
-        return (<SingleMovie  name={e.Title} image={e.Poster} year={e.Year}  />)
+        return (<SingleMovie  name={e.Title} image={e.Poster} year={e.Year} type={e.Type}  />)
 
     })}
     </div>

@@ -6,14 +6,14 @@ import SingleMovie1 from './SingleMovie1'
 import { Moviearray } from './MovieArray'
 import { click } from '@testing-library/user-event/dist/click'
 import { useContext } from 'react'
-import { HomeContext } from '../Contexts/HomeContext'
+import { HomeHeroContext } from '../Contexts/HomeHeroContext'
 import { IoIosArrowDropleftCircle, IoMdArrowDroprightCircle, IoMdArrowForward, IoIosArrowDroprightCircle } from 'react-icons/io'
 
 
 const MovieSlider = (prop) => {
 
     const [movieArray,setMovieArray]=useState(Moviearray)
-    const{videocontoller,setVideoController,movies,setmovies}=useContext(HomeContext);
+    const{videocontoller,setVideoController,movies,setmovies}=useContext(HomeHeroContext);
     const navRef=useRef();
 
     const handleClick=(direction)=>

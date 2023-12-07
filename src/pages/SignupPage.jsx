@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Moplay from '../assets/logos/moplay logo.png'
 import NavBar from '../components/NavBar'
 import MotionInput from '../components/MotionInput'
-import { IoIosCheckmarkCircle, IoIosMusicalNote, IoIosPhoneLandscape, IoIosPhonePortrait, IoIosTabletLandscape, IoIosTabletPortrait, IoIosTv, IoIosVideocam, IoMdSave } from 'react-icons/io'
+import { IoIosCheckmarkCircle,  IoIosPhonePortrait, IoIosTabletPortrait, IoIosTv, IoIosVideocam, IoMdSave } from 'react-icons/io'
 import { motion , AnimatePresence } from 'framer-motion'
 import Basic from '../assets/images/Basic.jpg'
 import Standard from '../assets/images/Standard.jpg'
@@ -319,7 +319,6 @@ useEffect(()=>
 
 {
 
-console.log(step);
 
 
 })

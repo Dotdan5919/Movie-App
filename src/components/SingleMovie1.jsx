@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { HomeContext } from '../Contexts/HomeContext'
+import { HomeHeroContext } from '../Contexts/HomeHeroContext'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 
 
 const SingleMovie1 = (props) => {
 
-  const {videocontoller,setVideoController,movies,setmovies,isClicked,setIsClicked,PlayVideo,setplayVideo}=useContext(HomeContext);
+  const {videocontoller,setVideoController,movies,setmovies,isClicked,setIsClicked,PlayVideo,setplayVideo}=useContext(HomeHeroContext);
   const variant={initial:{scale:1},animate:{scale:1.3}};
 
   const handlePlay=()=>

@@ -33,7 +33,7 @@ try {
       // Array.push(...JON.results);
        setLeftoffArray(result.Search);
 
-	console.log(leftoffArray);
+
 	
    
 
@@ -87,7 +87,7 @@ try {
     {
       leftoffArray && leftoffArray.map((e)=>{
 
-        return ( <Leftoffbox url={e.Poster} name={e.Title} percentage="10%"/> )
+        return ( <Leftoffbox url={e.Poster} name={e.Title}  percentage="10%"/> )
 
 
       })

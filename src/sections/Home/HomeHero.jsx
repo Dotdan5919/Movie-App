@@ -5,7 +5,7 @@ import MoviePoster from '../../assets/images/end game.jpeg'
 import MovieSlider from '../../components/MovieSlider'
 import ReactPlayer from 'react-player'
 import { Moviearray } from '../../components/MovieArray'
-import { HomeContext } from '../../Contexts/HomeContext'
+import { HomeHeroContext } from '../../Contexts/HomeHeroContext'
 import { IoIosVolumeHigh, IoMdVolumeMute } from 'react-icons/io'
 const HomeHero = () => {
 
@@ -61,7 +61,7 @@ useEffect(()=>
 })
 
   return (
-    <HomeContext.Provider value={{videocontoller,setVideoController,movies,setmovies,isClicked,setIsClicked,PlayVideo,setplayVideo}}>
+    <HomeHeroContext.Provider value={{videocontoller,setVideoController,movies,setmovies,isClicked,setIsClicked,PlayVideo,setplayVideo}}>
     <div className='w-screen h-screen relative'>
     
      {/*<video src={Movie} className='absolute z-0  top-[-80px] '  loop   width="90000" ref={videoref} id="videoref" > </video>*/}
@@ -98,7 +98,7 @@ useEffect(()=>
   
        
       </div>
-      </HomeContext.Provider>
+      </HomeHeroContext.Provider>
   )
 }
 
