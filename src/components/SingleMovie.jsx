@@ -49,7 +49,7 @@ const SingleMovie = (props) => {
     }
      const newWatchListArray=JSON.parse(localStorage.getItem('WatchListArray'));
      
-      setWatchlistArray([...newWatchListArray]);
+     newWatchListArray && setWatchlistArray([...newWatchListArray]);
 
     }
 
@@ -94,7 +94,7 @@ const SingleMovie = (props) => {
    }
     const newWatchListArray=JSON.parse(localStorage.getItem('WatchListArray'));
      
-      setWatchlistArray([...newWatchListArray]);
+    newWatchListArray && setWatchlistArray([...newWatchListArray]);
 
 
 
@@ -114,6 +114,12 @@ useEffect(()=>
     setfav(true);
    
   }
+  else{
+    setfav(false);
+
+
+
+  }
 
   if(parseInt(props.year)>2021)
   {
@@ -130,7 +136,7 @@ setNew(true);
 
   return (
     <AnimatePresence>
-    <motion.div className=' w-52 h-[320px] relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}}  initial={{scale:.3}} animate={{scale:1}}>
+    <motion.div className=' w-52 h-[320px] relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}} whileInView={{x:0}} initial={{x:"-1vw"}} >
     {New?(<button className='bg-red-700 p-2  absolute shadow-lg text-white text-xs right-3 top-4 rounded-lg'>New</button>):""}
 
     <img src={props.image} alt="" className=' w-96  h-full object-cover' />

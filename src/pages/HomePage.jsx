@@ -8,6 +8,7 @@ import Watchlist from '../sections/Home/Watchlist'
 import { WatchlistContext } from '../Contexts/WatchListContext'
 import Explore from '../sections/Home/Explore'
 import Genre from '../sections/Home/Genre'
+import Footer from '../sections/Home/Footer'
 const HomePage = () => {
 
 
@@ -74,6 +75,7 @@ const HomePage = () => {
 <Watchlist/>
 <Explore/>
 <Genre/>
+<Footer/>
 
 </WatchlistContext.Provider>  
     </div>
