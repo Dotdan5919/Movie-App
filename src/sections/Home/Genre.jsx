@@ -36,9 +36,15 @@ switch(activeNav)
             url='https://www.omdbapi.com/?s=love&apikey=60879b0d';
             url1='https://www.omdbapi.com/?s=princess&apikey=60879b0d';
             break;
+            case "Latest":
 
+            url='https://www.omdbapi.com/?s=hidden&y=2023&apikey=60879b0d';
+        url1='https://www.omdbapi.com/?s=dance&y=2023&apikey=60879b0d';
+            break;
 
     default:
+        url='https://www.omdbapi.com/?s=war&y=2023%apikey=60879b0d';
+            url1='https://www.omdbapi.com/?s=action&y=2023%apikey=60879b0d';
 
 
 }
@@ -95,24 +101,29 @@ switch(activeNav)
       <GenreNav name="Kids" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
       <GenreNav name="Superheroes" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
       <GenreNav name="Lovestory" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
+      <GenreNav name="Latest" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
+
 
 
       </div>
-      <div className="grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3  xl:grid-rows-2 grid-rows-4 grid-cols-2  ">
+      <div className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3  xl:grid-rows-2 grid-rows-4 grid-cols-2 gap-12  ">
       
-      {Array && Array.map((e)=>{
+      {Array && Array.slice(0,10).map((e)=>{
 
-        return ( <SingleMovie  name={e.Title} year={e.Year} image={e.Poster} />)
+        if(parseInt(e.Year)>2009)
+        
+        {return ( <SingleMovie  name={e.Title} year={e.Year} image={e.Poster} />)
+      }
 
 
       })}
       
-      
-
 
 
       </div>
-
+      
+      <button className='text-white mx-auto w-96  border-2 border-red-600 hover:bg-red-600 transition-all duration-700 p-4 '>See More</button>
+      
 
 
 

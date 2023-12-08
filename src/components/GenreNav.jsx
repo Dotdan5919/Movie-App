@@ -19,7 +19,7 @@ const GenreNav = (props) => {
     
 
 
-    <div className={'p-3 shadow-sm hover:bg-red-700 hover:text-white rounded-2xl hover:shadow-lg  duration-700 transition-all text-xs ' + BtnClass } onClick={()=>{props.click(props.name)}}>
+    <div className={'p-3 shadow-sm hover:bg-red-700 hover:text-white rounded-2xl hover:shadow-lg  duration-700 transition-all text-xs cursor-pointer ' + BtnClass } onClick={()=>{props.click(props.name)}}>
       {props.name}
     </div>
 

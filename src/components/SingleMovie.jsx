@@ -3,7 +3,7 @@ import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
 import { WatchlistContext } from '../Contexts/WatchListContext';
 import { json } from 'react-router-dom';
 import { buildTransform } from 'framer-motion';
-
+import { motion,AnimatePresence } from 'framer-motion';
 const SingleMovie = (props) => {
     const[fav,setfav]=useState(false);
     const[New,setNew]=useState(false);
@@ -129,7 +129,8 @@ setNew(true);
 
 
   return (
-    <div className=' w-52 h-[320px] relative hover:scale-110 mb-4  transition-all duration-700'>
+    <AnimatePresence>
+    <motion.div className=' w-52 h-[320px] relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}}  initial={{scale:.3}} animate={{scale:1}}>
     {New?(<button className='bg-red-700 p-2  absolute shadow-lg text-white text-xs right-3 top-4 rounded-lg'>New</button>):""}
 
     <img src={props.image} alt="" className=' w-96  h-full object-cover' />
@@ -146,7 +147,8 @@ setNew(true);
     
     </div>
 
-    </div>
+    </motion.div>
+    </AnimatePresence>
   )
 }
 
