@@ -16,6 +16,7 @@ import UpcomingPage from './pages/UpcomingPage';
 import TrendingPage from './pages/TrendingPage';
 import ExclusivePage from './pages/ExclusivePage';
 import SearchPage from './pages/SearchPage';
+import NoPage from './pages/NoPage';
 
 
 
@@ -43,8 +44,8 @@ const router=createBrowserRouter(
   <Route path='/home/upcoming'  element={ <UpcomingPage/>  }/>
   <Route path='/home/trending'  element={ <TrendingPage/> }/>
   <Route path='/home/exclusive'  element={ <ExclusivePage/>}/>
-  <Route path='/home/search'  element={ <SearchPage/> }/>
-  <Route path='*'  element={ <SearchPage/> }/>
+  <Route path='/home/search/:id'  element={ <SearchPage/> }/>
+  <Route path='*'  element={ <NoPage/>}/>
 
 
 
@@ -72,7 +73,7 @@ function App() {
 
 
   return (
-    <div className='w-full h-full bg-black   '>
+    <div className='w-full h-screen bg-black   '>
     <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>

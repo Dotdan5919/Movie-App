@@ -56,7 +56,7 @@ useEffect(
   return (
     <div className="w-11/12 justify-center mx-auto  md:pt-7 p-5 flex flex-col">
     <h1 className="text-white font-bold  p-10 w-full text-2xl" > Exclusive</h1>
-    <div className="grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2    self-center gap-12 overflow-hidden   ">
+    <div className="grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2    self-center gap-12    ">
       
     {Array && Array.map((e)=>{
 
