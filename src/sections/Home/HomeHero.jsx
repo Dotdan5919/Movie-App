@@ -67,7 +67,7 @@ useEffect(()=>
      {/*<video src={Movie} className='absolute z-0  top-[-80px] '  loop   width="90000" ref={videoref} id="videoref" > </video>*/}
      <div className="absolute flex  w-[900px] md:w-full -left-2 h-full  z-0  overflow-hidden   ">
      {PlayVideo?false:<img src={MovieThumbnail} alt='Thumbnail' className='absolute z-20  w-[100%]  h-full object-cover'/>}
-       <ReactPlayer className="absolute  z-0  object-cover w-full h-full "  url={MoviePlaying} playing={PlayVideo} loop={true} muted={volume} width="120%" height="auto" autoPlay={true}  />
+       <ReactPlayer className="absolute  z-0  object-cover w-full h-full "  url={MoviePlaying} playing={PlayVideo} loop={true} muted={/*volume*/ true} width="120%" height="auto" autoPlay={true}  />
        </div>
       
       <NavBarLoggedIn/>

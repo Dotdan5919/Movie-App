@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NavBarLoggedIn from '../components/NavBarLoggedIn'
 import HomeHero from '../sections/Home/HomeHero'
 import { useEffect,useState } from 'react'
@@ -11,11 +11,10 @@ import Genre from '../sections/Home/Genre'
 import Footer from '../sections/Home/Footer'
 const HomePage = () => {
 
+  const{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}=useContext(WatchlistContext)
 
 
 
-  const [WatchlistArray, setWatchlistArray] = useState([]);
-  const [WatchlistTrigger, setWatchlistTrigger] = useState(false);
 
   useEffect(() => {
     // 
@@ -66,18 +65,17 @@ const HomePage = () => {
 
   return (
     
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}}>
     <div className='w-screen overflow-x-hidden bg-black'>
 <HomeHero/>
 
 <LeftoffSection/>
 <SinceYouWatched/>
-<Watchlist/>
+<Watchlist grid="1" />
 <Explore/>
 <Genre/>
 <Footer/>
 </div>
-</WatchlistContext.Provider>  
+ 
     
   )
 }
