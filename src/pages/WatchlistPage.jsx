@@ -12,9 +12,9 @@ const WatchlistPage = () => {
 
   return (
     
-    <div>
+    <div className='p-10'>
 
-    <NavBarLoggedIn/>
+    
 
     <WatchlistSection grid="2"/>
     <Footer/>

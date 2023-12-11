@@ -7,22 +7,22 @@ import { NavLink } from 'react-router-dom'
 
 const NavBarLoggedIn = () => {
   return (
-    <div className='w-full  h-24 flex justify-between z-[99] relative items-center p-4'>
+    <div className='w-full  h-24 flex justify-between z-[99] absolute items-center p-4 ab'>
     <div className="flex gap-5 justify-center items-center text-white ">
-    <NavLink to="/homepage">
+    <NavLink to="/home/homepage">
     <img src={logo2} alt="" srcset="" className='w-[180px]'/>
     </NavLink>
     <div className="md:flex gap-12 hidden ">
-    <NavLink to="/exclusive">
+    <NavLink to="/home/exclusive">
     <li className='list-none text-md cursor-pointer hover:text-red-400 transition-all duration-300'>Exclusive</li>
     </NavLink>
-    <NavLink to="/trending">
+    <NavLink to="/home/trending">
     <li className='list-none text-md cursor-pointer hover:text-red-400 transition-all duration-300'>Trending</li>
     </NavLink>
-    <NavLink to="/upcoming">
+    <NavLink to="/home/upcoming">
     <li className='list-none text-md cursor-pointer hover:text-red-400 transition-all duration-300'>Upcoming</li>
     </NavLink>
-    <NavLink to="/watchlist">
+    <NavLink to="/home/watchlist">
     <li className='list-none text-md cursor-pointer hover:text-red-400 transition-all duration-300'>Watchlist</li>
     </NavLink>
     </div>

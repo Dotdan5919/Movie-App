@@ -5,8 +5,8 @@ import Footer from '../sections/Home/Footer'
 
 const TrendingPage = () => {
   return (
-    <div>
-    <NavBarLoggedIn/>
+    <div className='pt-20'>
+    
       <TrendingSection/>
       <Footer/>
     </div>

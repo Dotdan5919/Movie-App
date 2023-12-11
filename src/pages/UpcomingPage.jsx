@@ -5,8 +5,8 @@ import UpcomingSection from '../sections/OtherPages/UpcomingSection'
 
 const UpcomingPage = () => {
   return (
-    <div>
-      <NavBarLoggedIn/>
+    <div className='p-10'>
+      
       <UpcomingSection/>
 
 
