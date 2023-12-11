@@ -7,7 +7,7 @@ import { Moviearray } from './MovieArray'
 import { click } from '@testing-library/user-event/dist/click'
 import { useContext } from 'react'
 import { HomeHeroContext } from '../Contexts/HomeHeroContext'
-import { IoIosArrowDropleftCircle, IoMdArrowDroprightCircle, IoMdArrowForward, IoIosArrowDroprightCircle } from 'react-icons/io'
+import { IoIosArrowDropleftCircle, IoMdArrowDroprightCircle, IoMdArrowForward, IoIosArrowDroprightCircle,IoIosArrowDropleft,IoIosArrowDropright } from 'react-icons/io'
 
 
 const MovieSlider = (prop) => {
@@ -45,8 +45,14 @@ const MovieSlider = (prop) => {
   return (
     
       
-    <div className="flex flex-col h-fit gap-5 col-start-4 row-start-3 w-fit  bg-opacity-10 relative" >
-    <h1 className='text-white font-bold'>Hot movies</h1>
+    <div className="flex flex-col h-fit gap-5 sm:col-start-4 sm:row-start-3 col-start-1 w-fit row-start-4 bg-opacity-10 relative" >
+    <h1 className='text-white font-bold z-[3]'>Hot movies</h1>
+    <IoIosArrowDropleft onClick={()=>handleClick("left")}  className='absolute text-white flex bottom-[35%] left-0  justify-between   text-5xl z-30 hover:scale-[1.2] transition-all duration-700'  />
+    <IoIosArrowDropright onClick={()=>handleClick("right")}  className='absolute text-white flex bottom-[35%] right-16  justify-between   text-5xl z-30 hover:scale-[1.2] transition-all duration-700' />
+    
+    <div className="absolute bg-gradient-to-l from-transparent  to-black  opacity-[.2] my-10 w-20 h-[75%] z-[1]"></div>
+    <div className="absolute bg-gradient-to-r from-transparent right-16 to-black  opacity-[.2] my-10 w-20 h-[75%] z-[1]"></div>
+   
     <div className='w-[900px]  grid grid-flow-col relative gap-7 h-fit p-10 overflow-scroll' id="slider">
     {
 
@@ -71,11 +77,7 @@ const MovieSlider = (prop) => {
 
     
     </div>
-    <div className="absolute flex gap-2   text-[30px]  text-white -bottom-10 pt-2 bg-red-500 bg-opacity-10 w-fit z-[999]">
-    <IoIosArrowDropleftCircle   onClick={()=>handleClick("left")}  className='hover:shadow-sm hover:text-red-400'/>
-    <IoIosArrowDroprightCircle   onClick={()=>handleClick("right")}  className='hover:shadow-sm hover:text-red-400'/>
-      
-    </div>
+    
     
     </div>
     

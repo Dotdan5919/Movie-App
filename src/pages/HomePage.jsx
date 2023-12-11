@@ -65,9 +65,9 @@ const HomePage = () => {
 
 
   return (
-    <div className='w-screen overflow-x-hidden'>
+    
     <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}}>
-
+    <div className='w-screen overflow-x-hidden bg-black'>
 <HomeHero/>
 
 <LeftoffSection/>
@@ -76,9 +76,9 @@ const HomePage = () => {
 <Explore/>
 <Genre/>
 <Footer/>
-
+</div>
 </WatchlistContext.Provider>  
-    </div>
+    
   )
 }
 

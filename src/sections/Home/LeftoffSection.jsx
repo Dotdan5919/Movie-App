@@ -54,33 +54,33 @@ try {
 
 
 
-    const handleClick=(direction)=>
-    {
-        let leftOffslide=document.getElementById("leftOffslide");
-        leftOffslide.style.scrollBehavior="smooth";
+      const handleClick=(direction)=>
+      {
+          let leftOffslide=document.getElementById("leftOffslide");
+          leftOffslide.style.scrollBehavior="smooth";
 
-        if(direction==="left"){
-            leftOffslide.scrollLeft-=700;
+          if(direction==="left"){
+              leftOffslide.scrollLeft-=700;
 
-            
+              
 
-        }
+          }
 
-        else if (direction==="right")
-        {
+          else if (direction==="right")
+          {
 
-            leftOffslide.scrollLeft+=700;
-
-
-        }
+              leftOffslide.scrollLeft+=700;
 
 
+          }
 
-    }
+
+
+      }
     
 
   return (
-    <div className='w-full text-white flex flex-col p-10 gap-3 z-2 relative'>
+    <div className=' text-white flex flex-col p-10 gap-3 z-1 relative w-screen bg-black mt-3'>
     <h1 className="text-white font-bold text-lg">Continue where you left off</h1>
       
     <div className="w-full gap-3 grid grid-flow-col grid-rows-1 overflow-x-scroll" id="leftOffslide">
@@ -97,7 +97,7 @@ try {
  
 
       </div>
-      <div className="flex gap-2   text-[30px]  text-white -bottom-10 pt-2 bg-red-500 bg-opacity-10 w-fit">
+      <div className="flex gap-2   text-[30px]  text-white -bottom-10 pt-2  bg-opacity-10 w-fit">
     <IoIosArrowDropleftCircle   onClick={()=>handleClick("left")}  className='hover:shadow-sm hover:text-red-400'/>
     <IoIosArrowDroprightCircle   onClick={()=>handleClick("right")}  className='hover:shadow-sm hover:text-red-400'/>
       

@@ -112,9 +112,9 @@ switch(activeNav)
 
     
   return (
-    <div className='p-7 flex flex-col gap-5'>
+    <div className='p-7 flex flex-col gap-5 bg-black w-screen'>
       <h1 className='text-white w-full   text-center text-2xl font-bold '> Find your favourite genre</h1>
-    <div className="flex gap-3 justify-center">
+    <div className="flex sm:gap-3 justify-center">
       <GenreNav name="Action" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
       <GenreNav name="Kids" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
       <GenreNav name="Superheroes" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
@@ -124,7 +124,7 @@ switch(activeNav)
 
 
       </div>
-      <div className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2 gap-12 overflow-hidden   ">
+      <div className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2    self-center gap-12 overflow-hidden   ">
       
       {Array && Array.slice(0,ArrayLimit).map((e)=>{
 
@@ -142,7 +142,7 @@ switch(activeNav)
 
       </div>
       
-      <button className='text-white mx-auto w-96  border-2 border-red-600 hover:bg-red-600 transition-all duration-700 p-4 ' onClick={()=>{ArrayLimit<17?setArrayLimit(ArrayLimit+15):setArrayLimit(ArrayLimit-15)}}>{ArrayLimit<17?"See More":"See less"}</button>
+      <button className='text-white sm:w-96  mx-auto w-40  border-2 border-red-600 hover:bg-red-600 transition-all duration-700 p-4 ' onClick={()=>{ArrayLimit<17?setArrayLimit(ArrayLimit+15):setArrayLimit(ArrayLimit-15)}}>{ArrayLimit<17?"See More":"See less"}</button>
       
 
 
