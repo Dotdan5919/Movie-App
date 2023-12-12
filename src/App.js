@@ -17,6 +17,8 @@ import TrendingPage from './pages/TrendingPage';
 import ExclusivePage from './pages/ExclusivePage';
 import SearchPage from './pages/SearchPage';
 import NoPage from './pages/NoPage';
+import NoPage2 from './pages/NoPage2';
+
 
 
 
@@ -31,6 +33,7 @@ const router=createBrowserRouter(
   <Route path='/' index element={<WelcomePage/>}/>
   <Route path='/signin'  element={<SigninPage/>}/>
   <Route path='/signup'  element={<SignupPage/>}/>
+  <Route path='*'  element={ <NoPage2/>}/>
 
     </Route>
    
@@ -46,6 +49,8 @@ const router=createBrowserRouter(
   <Route path='/home/exclusive'  element={ <ExclusivePage/>}/>
   <Route path='/home/search/:id'  element={ <SearchPage/> }/>
   <Route path='*'  element={ <NoPage/>}/>
+  <Route path='/home'  element={ <NoPage/>}/>
+
 
 
 
@@ -70,11 +75,13 @@ const router=createBrowserRouter(
 function App() {
   const [WatchlistArray, setWatchlistArray] = useState([]);
   const [WatchlistTrigger, setWatchlistTrigger] = useState(false);
+  const [inViewActive, setInViewActive] = useState(true);
+
 
 
   return (
     <div className='w-full h-screen bg-black   '>
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}}>
+    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>
 

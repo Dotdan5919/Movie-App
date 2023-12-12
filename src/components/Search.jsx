@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { IoIosClose, IoIosSearch } from 'react-icons/io'
 import { AnimatePresence, animate, motion } from 'framer-motion';
-import { useNavigate, } from 'react-router-dom';
+import { useLocation, useNavigate, } from 'react-router-dom';
 const Search = () => {
 
     const [searchActive,setSearchActive]=useState(false);
@@ -10,6 +10,8 @@ const Search = () => {
     const input=useRef();
     const [searchTerm,setSearchTerm]=useState('');
     const navigate=useNavigate()
+    const {pathname}=useLocation();
+    
     let search=()=>{
 
       
@@ -30,7 +32,10 @@ const Search = () => {
 
 
             setfilled(false);
-            navigate("/home/homepage")
+            console.log("i am empty")
+            console.log(pathname);
+            
+         searchActive && navigate('/home/homepage');
         }
         else
         {

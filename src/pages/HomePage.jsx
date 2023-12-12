@@ -9,11 +9,16 @@ import { WatchlistContext } from '../Contexts/WatchListContext'
 import Explore from '../sections/Home/Explore'
 import Genre from '../sections/Home/Genre'
 import Footer from '../sections/Home/Footer'
+import { useInView } from 'react-intersection-observer'
+
 const HomePage = () => {
 
-  const{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger}=useContext(WatchlistContext)
+  const{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive}=useContext(WatchlistContext);
+  const{ref,inView,entry}=useInView({threshold:0})
 
-
+inView?setInViewActive(true):setInViewActive(false);
+console.log("inview"+ ""+inView);
+console.log("inviewState"+ " "+inViewActive);
 
 
   useEffect(() => {
@@ -66,8 +71,9 @@ const HomePage = () => {
   return (
     
     <div className='w-screen overflow-x-hidden bg-black'>
+<div ref={ref}>
 <HomeHero/>
-
+</div>
 <LeftoffSection/>
 <SinceYouWatched/>
 <Watchlist grid="1" />

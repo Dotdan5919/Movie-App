@@ -15,10 +15,12 @@ url='https://www.omdbapi.com/?s=' + searchterm.id + "&apikey=60879b0d";
 let Arrayval;
 
 
+
     useEffect(
         ()=>
         {
         
+         
 
             const fetchData = async () => {   
         
