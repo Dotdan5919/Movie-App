@@ -40,7 +40,8 @@ useEffect(()=>{
 
   const newWatchListArray=JSON.parse(localStorage.getItem('WatchListArray'));
      
-  setWatchlistArray([...newWatchListArray]);
+
+ newWatchListArray && setWatchlistArray([...newWatchListArray]);
 
 
 

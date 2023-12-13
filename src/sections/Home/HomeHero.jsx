@@ -25,9 +25,6 @@ let MovieName;
 let MovieDescription;
 
 
-
-
-
 const BackgroundMovie=()=>
 {
 
