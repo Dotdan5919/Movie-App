@@ -5,6 +5,7 @@ const MotionInput = (props) => {
 
 const[activeInput,setActiveInput]=useState(false);
 const ref=useRef(null);
+const [value,setValue]=useState(props.val);
 let InputClass;
 if(props.color==="white"){
  InputClass="h-[50px] w-full bg-white outline-none p-8 border-2  border-red-400"
@@ -25,10 +26,14 @@ else{
 
 useEffect(()=>{
 
+  
+ref.current.value===""?setActiveInput(false):setActiveInput(true);
+
+  
 
 
 
-})
+},[])
 
 
   return (
@@ -36,7 +41,9 @@ useEffect(()=>{
       
 
    <motion.h1 initial={{x:0,y:0}} animate={activeInput?{x:1,y:-20,scale:.7,transitionDelay:2}:"d"} className='absolute p-5 cursor-pointer opacity-40 '>{props.name} </motion.h1> 
-    <input type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}/>
+    <input type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}  value={value} onChange={()=>{setValue()}} maxLength={props.type==="password"?10:50}
+    
+    />
 <p className='absolute top-[65px] left-[2px]'>{props.error}</p>
 
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Moplay from '../assets/logos/moplay logo.png'
 import NavBar from '../components/NavBar'
 import MotionInput from '../components/MotionInput'
@@ -10,11 +10,29 @@ import Standard from '../assets/images/Standard.jpg'
 import Premium from '../assets/images/Premium.jpg'
 import { NavLink } from 'react-router-dom'
 
+import { useParams } from 'react-router-dom'
 
 const SignupPage = () => {
 
 const[step,setStep]=useState(1);
 const[plan,setPlan]=useState("standard");
+const firstForm=useRef();
+
+
+
+
+const handleSubmit =()=>
+{
+
+
+
+  
+
+console.log("hi")
+
+}
+
+const id=useParams();
 let stepContent;
 const variantAnim={
 
@@ -34,6 +52,7 @@ opacity:100
 }
 
 
+
 switch(step)
 {
 case 1:
@@ -42,22 +61,26 @@ stepContent=(
   <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7'>  
 <p>Step 1 of 3</p>
 <h1 className='text-[35px] font-bold'>Welcome <br/>
-Joining Moplay is easy.
+Joining Moplay is easy. 
 </h1>
 
 <p>Enter your password and you'll be watching in no time</p>
 
 
 <div className="flex flex-col ">
-<p>Email</p>
+
 <h></h>
 </div>
-<MotionInput name="Email" type="password" color="white" />
+<form className='grid gap-7' ref={firstForm} onSubmit={handleSubmit()}>
+<MotionInput name="Email" type="email" color="white" val={id.id} />
 
 <MotionInput name="Password" type="password" color="white" />
+<MotionInput name="Re-Enter Password" type="password" color="white" />
+
 
 <button className='w-full bg-red-700 p-5 text-white text-xl  hover:bg-red-600' onClick={()=>{setStep(2)}}>Next</button>
 
+</form>
 
 
 </motion.div> );
@@ -318,6 +341,10 @@ useEffect(()=>
 
 
 {
+
+
+
+
 
 
 

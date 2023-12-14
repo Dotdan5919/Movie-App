@@ -33,6 +33,8 @@ const router=createBrowserRouter(
   <Route path='/' index element={<WelcomePage/>}/>
   <Route path='/signin'  element={<SigninPage/>}/>
   <Route path='/signup'  element={<SignupPage/>}/>
+  <Route path='/signup/:id'  element={<SignupPage/>}/>
+
   <Route path='*'  element={ <NoPage2/>}/>
 
     </Route>

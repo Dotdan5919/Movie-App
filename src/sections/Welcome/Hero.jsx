@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import NavBar from '../../components/NavBar'
 import bgImage from '../../assets/images/dark-vip-cinema-studio-still-life.jpg'
 import { IoIosArrowForward } from "react-icons/io";
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -11,41 +12,123 @@ const Hero = () => {
 
 
   const form=useRef();
+  const emailRef=useRef();
+const [verifyEmail,setVerifyEmail]=useState();
+const [sendState,setSendState]=useState(false);
+const [formInput,setFormInput]=useState();
+
+const navigate=useNavigate();
+
+
 
   
-// Username:'dighodaro95@gmail.com',
-// Password:'7FFCFC49128708E7942D115CA1425BBE82BD',
-// Host:'smtp.elasticemail.com',
-// Port:2525,
-//3DC9F5A0C3E484F68D6A3B7D9E4B00D4D117966E02F6A466DCB2CB906F625D4A240E9AAD3548449E5DA5090DEFA798D3
-// const send=()=>{
-// const config={
- 
-//   SecureToken:'1da5516b-4651-4fca-9911-d5dffba04d6e',
-//   To : 'dotdanighodaro@gmail.com',
-//     From : "ichristboy@gmail.com",
-//     Subject : "This is the subject",
-//     Body : "And this is the body",
 
 
-// }
-// if(window.Email){
 
-// window.Email.send(config).then(()=>alert("email sent")).catch(error=>console.log(error))
+const sendMail=()=>{
 
-// }
-// }
-// const former={user_email:"dighodaro95@gmail.com",name:"daniel",message:"hi"};
+
+emailjs.sendForm('service_tbmx7l6', 'template_pwgt1ob',form.current, 'vsgPr6d4Be4gEFu9X')
+    .then(
+      
+      
+      
+      (result) => {
+        
+        console.log(result.text);
+        
+        setSendState(false);
+      
+
+navigate("/signup/"+ emailRef.current.value);
+
+        emailRef.current.value="";
+
+    }, (error) => {
+        console.log(error.text);
+    })
+
+  }
+    
+
+
+
+const verifyMe=async()=>
+{
+
+  const val=verifyEmail;
+
+  const url = 'https://mailcheck.p.rapidapi.com/?domain='+val;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '1fa1b2d733mshe73757629ab09f1p1a9202jsnd27da5229596',
+      'X-RapidAPI-Host': 'mailcheck.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+
+    console.log(result.block);
+   const resultValue=await result.block;
+
+if(resultValue===true)
+{
+
+
+  setSendState(false);
+  
+  
+  
+
+  alert("incorrect mail");
+  emailRef.current.value="";
+  
+}
+
+else{
+  setSendState(true);
+  
+
+
+
+
+
+}
+    
+    
+    
+   
+  } catch (error) {
+    console.error(error);
+    
+  }
+
+
+}
+
+const handleValue=()=>
+{
+
+
+//  fetch();
+  
+
+
+}
 
 const send=(e)=>{
   e.preventDefault();
-emailjs.sendForm('service_tbmx7l6', 'template_pwgt1ob',form.current, 'vsgPr6d4Be4gEFu9X')
-      .then((result) => {
-          console.log(result.text);
-          e.target.reset();
-      }, (error) => {
-          console.log(error.text);
-      });
+
+  console.log(verifyEmail);
+  
+  
+
+  verifyMe();
+  
+
 
     }
 
@@ -55,10 +138,16 @@ emailjs.sendForm('service_tbmx7l6', 'template_pwgt1ob',form.current, 'vsgPr6d4Be
   
   
   {
+  
+    
+  // console.log(form.current.user_email.value)
+
+sendState &&  sendMail(formInput);
+    
 //  send();
+// fetch();
 
-
-  },[])
+  })
   // Call the function
   
   
@@ -79,12 +168,12 @@ emailjs.sendForm('service_tbmx7l6', 'template_pwgt1ob',form.current, 'vsgPr6d4Be
 <p className='text-white'>Ready to watch? Enter your email to create or restart your membership.</p>
 <form  ref={form} onSubmit={send}>
 <div className='gap-2 flex w-[100%] h-auto'>
-<input type="email" name="user_email" id="" className='w-[60%] h-[auto]  p-4 opacity-40 bg-black text-white border-white border-2  '  placeholder='Email Address'/>
-<button className='bg-red-600 w-40 p-4 text-white hover:bg-red-500 flex items-center justify-center text-xl' name='submit'>Get Started <IoIosArrowForward />  </button>
+<input type="email" name="user_email" id="" ref={emailRef} className='w-[60%] h-[auto]  p-4 opacity-40 bg-black text-white border-white border-2  '  placeholder='Email Address' onChange={(e)=>{handleValue();setVerifyEmail(e.target.value);}}/>
+<button className='bg-red-600 w-40 p-4 text-white hover:bg-red-500 flex items-center justify-center text-xl' name='submit'  onClick={()=>{}}>Get Started <IoIosArrowForward />  </button>
 <input type="text" className='hidden' name='from_name' value={
-  "MoPlay"
+  "MoPlay" 
 } /><input type="text"  className='hidden' value={"Welcome to MoPlay"} name='message'/>
-<input type="text" className='hidden' name='' value={"email"} />
+<input type="text" className='hidden' name='email' value={"email"} />
 <input type="text" className='hidden' name='from_email' value={"dan@ighodarodaniel.com.ng"} />
 
 
