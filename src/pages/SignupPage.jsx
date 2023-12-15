@@ -11,24 +11,102 @@ import Premium from '../assets/images/Premium.jpg'
 import { NavLink } from 'react-router-dom'
 
 import { useParams } from 'react-router-dom'
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser} from "firebase/auth";
 
 const SignupPage = () => {
+
+// firebase connection
+const firebaseConfig = {
+  apiKey: "AIzaSyB0BZUtbN-CIb7yV71UoC4iMwifSkqoDnY",
+  authDomain: "movie-app-16fcb.firebaseapp.com",
+  projectId: "movie-app-16fcb",
+  storageBucket: "movie-app-16fcb.appspot.com",
+  messagingSenderId: "1046262940262",
+  appId: "1:1046262940262:web:81bb6114b747a7e8e4a3a7",
+  measurementId: "G-B7RQLELCC7"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth=getAuth(app);
+const user=auth.currentUser;
+
+
+deleteUser(user).then(()=>
+{
+console.log("user Created");
+
+
+}).catch((err)=>{});
+
+
+
+
+
+
+
+
+
+
+
 
 const[step,setStep]=useState(1);
 const[plan,setPlan]=useState("standard");
 const firstForm=useRef();
+const errorLabel=useRef();
+
+const [passwordOne,setPasswordOne]=useState();
+const [passwordTwo,setPasswordTwo]=useState();
 
 
 
 
-const handleSubmit =()=>
+const handleSubmit =(e)=>
 {
 
 
 
-  
+e.preventDefault();
 
-console.log("hi")
+ const email=firstForm.current.email.value;
+ const  password=passwordOne;
+
+
+
+
+if(passwordOne===passwordTwo){
+
+  console.log(firstForm.current.email.value)
+
+createUserWithEmailAndPassword(auth,email,password)
+
+.then((cred)=>
+
+
+{
+
+  deleteUser(auth);
+ console.log('user created',cred.user)
+// console.log('signedout');
+
+
+
+}).catch((err)=>{
+
+console.log(err.message)
+
+})
+
+}
+else{
+
+errorLabel.current.textContent="Inconsistent password"
+errorLabel.current.className="bg-red-400 text-white p-2"
+
+}
 
 }
 
@@ -71,14 +149,15 @@ Joining Moplay is easy.
 
 <h></h>
 </div>
-<form className='grid gap-7' ref={firstForm} onSubmit={handleSubmit()}>
+<form className='grid gap-7' ref={firstForm} onSubmit={handleSubmit}>
 <MotionInput name="Email" type="email" color="white" val={id.id} />
 
-<MotionInput name="Password" type="password" color="white" />
-<MotionInput name="Re-Enter Password" type="password" color="white" />
+<MotionInput name="Password" type="password" color="white"    pwdListner={(pwd)=>{setPasswordOne(pwd)}}/>
+<MotionInput name="Re-Enter Password" type="password" color="white"    pwdListner={(pwd)=>{setPasswordTwo(pwd)}}/>
 
+<h1 ref={errorLabel}></h1>
 
-<button className='w-full bg-red-700 p-5 text-white text-xl  hover:bg-red-600' onClick={()=>{setStep(2)}}>Next</button>
+<button className='w-full bg-red-700 p-5 text-white text-xl  hover:bg-red-600' type='submit' onClick={()=>{/*setStep(2)*/}}>Next</button>
 
 </form>
 
@@ -341,6 +420,8 @@ useEffect(()=>
 
 
 {
+
+
 
 
 

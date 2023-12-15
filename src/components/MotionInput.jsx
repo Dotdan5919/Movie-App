@@ -41,9 +41,16 @@ ref.current.value===""?setActiveInput(false):setActiveInput(true);
       
 
    <motion.h1 initial={{x:0,y:0}} animate={activeInput?{x:1,y:-20,scale:.7,transitionDelay:2}:"d"} className='absolute p-5 cursor-pointer opacity-40 '>{props.name} </motion.h1> 
-    <input type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}  value={value} onChange={()=>{setValue()}} maxLength={props.type==="password"?10:50}
-    
+    { props.type==="email"?
+      <input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}  value={value} onChange={()=>{setValue()}} maxLength={props.type==="password"?10:50}
+    required
+    />:
+    <input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value);props.pwdListner(e.target.value)}} maxLength={props.type==="password"?10:50}
+    required minLength={8}
     />
+  
+  
+  }
 <p className='absolute top-[65px] left-[2px]'>{props.error}</p>
 
     </div>
