@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser} from "firebase/auth";
+import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
 
 const SignupPage = () => {
 
@@ -35,15 +35,12 @@ const auth=getAuth(app);
 const user=auth.currentUser;
 
 
-deleteUser(user).then(()=>
-{
-console.log("user Created");
+// deleteUser(user).then(()=>
+// {
+// console.log("user Created");
 
 
-}).catch((err)=>{});
-
-
-
+// }).catch((err)=>{});
 
 
 
@@ -52,22 +49,38 @@ console.log("user Created");
 
 
 
+
+
+
+
+
+// all states and plans
 
 const[step,setStep]=useState(1);
 const[plan,setPlan]=useState("standard");
 const firstForm=useRef();
 const errorLabel=useRef();
 
+// passwords
 const [passwordOne,setPasswordOne]=useState();
 const [passwordTwo,setPasswordTwo]=useState();
 
+// 
+const [planType,setPlanType]=useState();
+
+
+
+ 
 
 
 
 const handleSubmit =(e)=>
 {
 
-
+  function validatePassword(password) {
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-_@#$%^&*])[a-zA-Z0-9-_\@#$%^&*]{8,}$/;
+    return pattern.test(password);
+  }
 
 e.preventDefault();
 
@@ -77,34 +90,63 @@ e.preventDefault();
 
 
 
-if(passwordOne===passwordTwo){
+
+
+
+  if(validatePassword(passwordOne)){
+
+
+    if(passwordOne===passwordTwo){
 
   console.log(firstForm.current.email.value)
+  errorLabel.current.textContent="Ok"
+  errorLabel.current.className="bg-green-400 text-white p-2"
 
-createUserWithEmailAndPassword(auth,email,password)
-
-.then((cred)=>
-
-
-{
-
-  deleteUser(auth);
- console.log('user created',cred.user)
-// console.log('signedout');
+  signInWithEmailAndPassword(auth,email,password).then
+  ((cred)=>{console.log('user loggedin',cred.user)}).catch((err)=>
+  {
 
 
+    console.log(err.message);
+  })
+// createUserWithEmailAndPassword(auth,email,password)
 
-}).catch((err)=>{
+// .then((cred)=>
 
-console.log(err.message)
 
-})
+// {
+
+ 
+//  console.log('user created',cred.user)
+// // console.log('signedout');
+
+// setStep(2)
+
+// }).catch((err)=>{
+
+// console.log(err.message)
+
+// })
+}
+
+else{
+
+
+  errorLabel.current.textContent="Inconsistent password"
+  errorLabel.current.className="bg-red-400 text-white p-2"
+
+
+
+
+}
 
 }
 else{
 
-errorLabel.current.textContent="Inconsistent password"
-errorLabel.current.className="bg-red-400 text-white p-2"
+  errorLabel.current.textContent="Your password must have at least one lowercase,one uppercase,at least a number, at least a special character"
+  errorLabel.current.className="bg-red-400 text-white p-2"
+
+
 
 }
 
@@ -134,9 +176,10 @@ opacity:100
 switch(step)
 {
 case 1:
+
 stepContent=(
  
-  <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7'>  
+  <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 w-[60%]'>  
 <p>Step 1 of 3</p>
 <h1 className='text-[35px] font-bold'>Welcome <br/>
 Joining Moplay is easy. 
@@ -157,61 +200,20 @@ Joining Moplay is easy.
 
 <h1 ref={errorLabel}></h1>
 
-<button className='w-full bg-red-700 p-5 text-white text-xl  hover:bg-red-600' type='submit' onClick={()=>{/*setStep(2)*/}}>Next</button>
+<button className='w-full bg-red-700 p-5 text-white text-xl  hover:bg-red-600' type='submit' onClick={()=>{/**/}}>Next</button>
 
 </form>
 
 
 </motion.div> );
 break;
-case 2:
-  stepContent=(  
-    <AnimatePresence>   
-    <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0}} animate="final" className='grid gap-7'>  
-  <p>Step 2 of 3</p>
-<h1 className='text-[35px] font-bold'>
-Choose your plan.
-</h1>
 
-
-<div className="marks flex flex-col gap-5 items-start">
-
-<div className="flex justify-center items-center gap-3">
-  <div> <IoIosCheckmarkCircle className='text-[50px] text-red-700'/>  </div>
-  <h1 className='text-[18px]'>No Commitments, cancen anytime.</h1>
-</div>
-
-<div className="flex justify-center items-center gap-3">
-<div> <IoIosCheckmarkCircle className='text-[50px] text-red-700'/>  </div>
-<h1 className='text-[18px]'>Everything on Moplay for one low price.</h1>
-</div>
-
-<div className="flex justify-center items-center gap-3">
-<div> <IoIosCheckmarkCircle className='text-[50px] text-red-700'/>  </div>
-<h1 className='text-[18px]'>No ads and no extra fees. Ever.</h1>
-</div>
-
-</div>
-
-
-<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(3)}}>Next</button>
-
-
-</motion.div>
-
-</AnimatePresence>
-
-
-
-   );
-   break;
-
-   case 3:
+   case 2:
 
     stepContent=(  
         
       <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 w-[60%]'>  
-    <p>Step 3 of 3</p>
+    <p>Step 2 of 3</p>
   <h1 className='text-[35px] font-bold'>
   Choose your plan.
   </h1>
@@ -221,7 +223,7 @@ Choose your plan.
   
   <div className="flex justify-center items-center gap-3">
     <div> <IoIosCheckmarkCircle className='text-[50px] text-red-700'/>  </div>
-    <h1 className='text-[18px]'>No Commitments, cancen anytime.</h1>
+    <h1 className='text-[18px]'>No Commitments, cancel anytime.</h1>
   </div>
   
   <div className="flex justify-center items-center gap-3">
@@ -237,15 +239,15 @@ Choose your plan.
   </div>
   
 
-<div className="flex gap-10 justify-start items-start w-full">
+<div className="grid md:grid-cols-3 gap-5 justify-start items-start w-full ">
 
-<div className={"flex flex-col gap-2 rounded-md  bg-white shadow-md p-10 items-start h-[370px] " + " " + (plan==="basic"?"text-red-500":"text-black") } onClick={()=>{setPlan("basic")}}>
+<div className={"flex   cursor-pointer flex-col gap-2 rounded-md  bg-white shadow-md p-10 items-start h-full " + " " + (plan==="basic"?"text-red-500":"text-black") } onClick={()=>{setPlan("basic")}}>
 
 <h1 className=' text-[20px]'>Basic Plan</h1>
 
 <p className='text-[45px] font-bold'>$3 </p>
 <hr />
-<p className='flex gap-2 justify-center items-center'> <IoMdSave/> 480p </p>
+<p className='flex  gap-2 justify-center items-center'> <IoMdSave/> 480p </p>
 
 <p className='flex justify-center items-center gap-2'> <IoIosVideocam/> Good Video quality</p>
 <p className='flex justify-center items-center gap-2'> <IoIosPhonePortrait/> Mobile Device </p>
@@ -253,7 +255,7 @@ Choose your plan.
 
 </div>
 
-<div className={"flex flex-col gap-2 rounded-md  bg-white shadow-md p-10 items-start h-[370px] " + " " + (plan==="standard"?"text-red-500":"text-black") } onClick={()=>{setPlan("standard")}}>
+<div className={"flex    cursor-pointer  flex-col gap-2 rounded-md  bg-white shadow-md p-10 items-start h-full " + " " + (plan==="standard"?"text-red-500":"text-black") } onClick={()=>{setPlan("standard")}}>
 
 <h1 className=' text-[20px]'>Standard Plan</h1>
 
@@ -271,9 +273,9 @@ Choose your plan.
 {plan==="standard" &&  (<div className="bg-red-300 w-full p-1 "> </div>)}
 
 </div>
-<div className={"flex flex-col gap-2 rounded-md  bg-white shadow-md p-10 items-start h-[370px] " + " " + (plan==="premium"?"text-red-500":"text-black") } onClick={()=>{setPlan("premium")}}>
+<div className={"flex cursor-pointer  flex-col gap-2 rounded-md  bg-white shadow-md p-10 items-start h-full " + " " + (plan==="premium"?"text-red-500":"text-black") } onClick={()=>{setPlan("premium")}}>
 
-<h1 className=' text-[20px]'>Premium Plan</h1>
+<h1 className=' text-[20px]  '>Premium Plan</h1>
 
 <p className='text-[45px] font-bold'>$15 </p>
 <hr />
@@ -314,7 +316,7 @@ Choose your plan.
 
 
   
-  <button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(4)}}>Next</button>
+  <button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(3)}}>Next</button>
   
   
   </motion.div>
@@ -327,11 +329,11 @@ Choose your plan.
 
      break;
 
-  case 4:
+  case 3:
 
   stepContent=(  
         <AnimatePresence>
-    <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0,delay:.5}} animate="final" className='grid gap-7 w-[40%]'>  
+    <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0,delay:.5}} animate="final" className='grid gap-7 w-[60%]'>  
   
 
     <p>Step 3 of 3</p>
@@ -348,13 +350,13 @@ Choose your plan.
 
 
 <div className="flex justify-between">
-<div className='flex'>adfaf
-<h1 className="font-bold">adfa</h1>
-<p>Basic</p>
+<div className=''>
+<h1 className="font-bold capitalize ">{plan} <br/> plan</h1>
+
 
 </div>
 
-<a href="#"> Change</a>
+<a href="#" onClick={()=>{setStep(2)}} className='p-5 hover:text-red-700 '> Change</a>
 </div>
 
 <p>Your payments will be processed internationally. Additional bank fees may apply.</p>
@@ -389,7 +391,7 @@ memebership and charge the membership fee(currently {}) to your payment method u
 
 
 
-<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(4)}}><NavLink to="/homepage">
+<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{}}><NavLink to="/home/homepage">
 Start membership</NavLink></button>
 
 
@@ -421,15 +423,14 @@ useEffect(()=>
 
 {
 
+  
+  let currentUser=auth.currentUser;
+  console.log(currentUser);
+  setStep(2)
 
 
 
-
-
-
-
-
-})
+},[])
 
 
   return (
