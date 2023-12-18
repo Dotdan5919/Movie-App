@@ -351,7 +351,7 @@ break;
 
 <div className="flex justify-between">
 <div className=''>
-<h1 className="font-bold capitalize ">{plan} <br/> plan</h1>
+<h1 className="font-bold capitalize ">{plan}  plan</h1>
 
 
 </div>
