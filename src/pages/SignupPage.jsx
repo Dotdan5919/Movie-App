@@ -102,31 +102,25 @@ e.preventDefault();
   errorLabel.current.textContent="Ok"
   errorLabel.current.className="bg-green-400 text-white p-2"
 
-  signInWithEmailAndPassword(auth,email,password).then
-  ((cred)=>{console.log('user loggedin',cred.user)}).catch((err)=>
-  {
+  // signOut(auth).then().catch((err)=>{console.log(err.message)})
+createUserWithEmailAndPassword(auth,email,password)
+
+.then((cred)=>
 
 
-    console.log(err.message);
-  })
-// createUserWithEmailAndPassword(auth,email,password)
-
-// .then((cred)=>
-
-
-// {
+{
 
  
-//  console.log('user created',cred.user)
-// // console.log('signedout');
+ console.log('user created',cred.user)
+// console.log('signedout');
 
-// setStep(2)
+setStep(2)
 
-// }).catch((err)=>{
+}).catch((err)=>{
 
-// console.log(err.message)
+console.log(err.message)
 
-// })
+})
 }
 
 else{
@@ -426,7 +420,10 @@ useEffect(()=>
   
   let currentUser=auth.currentUser;
   console.log(currentUser);
+  if(currentUser!=null)
+  {
   setStep(2)
+}
 
 
 
