@@ -77,13 +77,15 @@ const router=createBrowserRouter(
 function App() {
   const [WatchlistArray, setWatchlistArray] = useState([]);
   const [WatchlistTrigger, setWatchlistTrigger] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+
   const [inViewActive, setInViewActive] = useState(true);
 
 
 
   return (
     <div className='w-full h-screen bg-black   '>
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive}}>
+    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>
 

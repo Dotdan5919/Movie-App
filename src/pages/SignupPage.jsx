@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Moplay from '../assets/logos/moplay logo.png'
 import NavBar from '../components/NavBar'
 import MotionInput from '../components/MotionInput'
@@ -9,11 +9,12 @@ import Standard from '../assets/images/Standard.jpg'
 
 import Premium from '../assets/images/Premium.jpg'
 import { NavLink } from 'react-router-dom'
-
+import { WatchlistContext } from '../Contexts/WatchListContext'
 import { useParams } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
+import { onAuthStateChanged } from 'firebase/auth'
 
 const SignupPage = () => {
 
@@ -33,7 +34,8 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth=getAuth(app);
 const user=auth.currentUser;
-
+const [isLoading,setIsLoading]=useState()
+const {isLoggedIn,setIsLoggedIn}=useContext(WatchlistContext)
 
 // deleteUser(user).then(()=>
 // {
@@ -336,10 +338,10 @@ break;
     </h1>
     
     <div className="grid grid-cols-2 grid-rows-3 gap-4">
-    <MotionInput name="Card Number" color="white"  extraclass="col-span-2" / >
-    <MotionInput name="Expiration date" color="white" / >
-    <MotionInput name="CVV" color="white" / >
-    <MotionInput name="Name on card" color="white" extraclass="col-span-2" / >
+    <MotionInput name="Card Number" color="white"  extraclass="col-span-2" type="number"  maxLength="12" / >
+    <MotionInput name="Expiration date" color="white"  type="number" maxLength="6" / >
+    <MotionInput name="CVV" color="white" type="number" maxLength="4" / >
+    <MotionInput name="Name on card" color="white" extraclass="col-span-2" type="text"  / >
     </div>
 
 
@@ -418,12 +420,45 @@ useEffect(()=>
 {
 
   
-  let currentUser=auth.currentUser;
-  console.log(currentUser);
-  if(currentUser!=null)
+//   let currentUser=auth.currentUser;
+  
+//   setTimeout(() => {
+    
+//   currentUser=auth.currentUser;
+//   console.log(currentUser);
+
+//   if(currentUser!=null)
+//   {
+//   setStep(2)
+// }
+// setIsLoading(true)
+//   }, 2000);
+ 
+const listen=onAuthStateChanged(auth,(user)=>{
+
+
+  if(user)
   {
-  setStep(2)
-}
+  
+  
+    setStep(2);
+  }
+  else{
+  
+  
+  
+  
+  }
+
+
+  return ()=>{
+
+    listen();
+  }
+})
+
+
+
 
 
 

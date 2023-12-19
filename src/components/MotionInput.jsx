@@ -33,24 +33,22 @@ InputContent=(<input name={props.type} type={props.type} className={InputClass} 
  break;
 
  case "password":
-InputContent=(  <input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value);props.pwdListner(e.target.value)}} maxLength={props.type==="password"?10:50}
+InputContent=(  <input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value);(props.pwdListner && props.pwdListner(e.target.value))}} maxLength={props.type==="password"?10:50}
 required minLength={8}
 />
 );
  break;
 
  case "number":
-  InputContent=(  <input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value);props.pwdListner(e.target.value)}} maxLength={props.type==="password"?10:50}
-  required minLength={8}
+  InputContent=(  <input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value)}} maxLength={props.maxLength} required minLength={8}
   />);
  break;
 
  case "text":
-  InputContent=(<input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value);props.pwdListner(e.target.value)}} maxLength={props.type==="password"?10:50}
-  required minLength={8}
-  />);
+  InputContent=(<input name={props.type} type={props.type} className={InputClass} ref={ref} onFocus={()=>{setActiveInput(true)}} onBlur={()=>{ref.current.value===""?setActiveInput(false):setActiveInput(true)}}   onChange={(e)=>{setValue(e.target.value)}} maxLength={10} required minLength={8}/>);
 
  default:
+  
 
 
 
@@ -70,8 +68,7 @@ ref.current.value===""?setActiveInput(false):setActiveInput(true);
 
   return (
     <div className={'w-full flex flex-col gap-3 relative'+ " " +props.extraclass}>
-      
-
+     
    <motion.h1 initial={{x:0,y:0}} animate={activeInput?{x:1,y:-20,scale:.7,transitionDelay:2}:"d"} className='absolute p-5 cursor-pointer opacity-40 '>{props.name} </motion.h1> 
     { 
     //   props.type==="email"?
