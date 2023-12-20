@@ -4,7 +4,7 @@ import NavBarLoggedIn from '../components/NavBarLoggedIn'
 
 const HomeLayout = () => {
   return (
-    <div className='bg-black '>
+    <div className='bg-black w-screen relative overflow-hidden '>
     <NavBarLoggedIn/>
       <Outlet/>
     </div>

@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MotionInput from './MotionInput'
 import { NavLink } from 'react-router-dom'
 import { FirebaseApp,initializeApp } from 'firebase/app'
 import { signInWithEmailAndPassword,getAuth } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 
 const LoginForm = () => {
 
-
+const navigate=useNavigate();
   
 // firebase connection
 const firebaseConfig = {
@@ -24,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const auth=getAuth(app);
-
+const [errorSetter,setErrorSetter]=useState();
 let errorListner;
 const handleSubmit=(e)=>
 {
@@ -39,6 +40,11 @@ signInWithEmailAndPassword(auth,UserEmail,UserPassword).then(
 
 
   console.log(cred.user);
+  setErrorSetter(false);
+  e.target.reset();
+  navigate("/home/homepage");
+
+
 }
 
 
@@ -49,7 +55,8 @@ signInWithEmailAndPassword(auth,UserEmail,UserPassword).then(
 (err)=>
 {
 
-  errorListner=(<h1>Incorrect Details</h1>);
+  errorListner="Incorrect Details";
+  setErrorSetter(true);
 console.log(err.message);
 
 }
@@ -60,6 +67,14 @@ console.log(err.message);
 
 
 }
+
+useEffect(()=>
+{
+
+
+
+
+},[])
 
 
 
@@ -72,9 +87,12 @@ console.log(err.message);
 
 <MotionInput type="email" name="Email Address" color="black"/>
 <MotionInput type="password" name="Password" color="black"/>
-<p className='text-red-500 hover:text-red-300'>
-{errorListner===""?"":"Incorrect Details"}
+<p  className='text-red-400'>
+
+{errorSetter?"incorrect Details":""}
+
 </p>
+
 
 
 <button className='grid f row-start-5  bg-red-600 hover:bg-red-800 rounded-md justify-center items-center'>Submit</button>
