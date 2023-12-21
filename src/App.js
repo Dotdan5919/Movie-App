@@ -160,7 +160,7 @@ return ()=>{
 
   return (
     <div className='w-full h-screen bg-black   '>
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred}}>
+    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>
 

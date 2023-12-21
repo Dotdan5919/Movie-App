@@ -24,13 +24,13 @@ const Profile = () => {
 <hr className='w-full border-1  bg-black border-black ' />
 
 
-<ProfileValues value={userCred.displayName}  navigator={"Change Name"} />
-<ProfileValues value={userCred.email}  navigator={"Change Email"} />
+<ProfileValues value={userCred.displayName}  name={"Name"} />
+<ProfileValues value={userCred.email}  name={"Email"} />
 
-<ProfileValues value={userCred.password}  navigator={"Change Password"} />
-<ProfileValues value={"Standard Plan"}  navigator={"Change Membership"} />
-<ProfileValues value={userCred.phoneNumber}  navigator={"Change Phone number"} />
-<ProfileValues value={userCred.photoUrl}  navigator={"Change Photo"} />
+<ProfileValues value={userCred.password}  name={"Password"} />
+<ProfileValues value={"Standard Plan"}  name={"Membership"} />
+<ProfileValues value={userCred.phoneNumber}  name={"Phone number"} />
+<ProfileValues value={userCred.photoUrl}  name={"Photo"} />
 
 
 
