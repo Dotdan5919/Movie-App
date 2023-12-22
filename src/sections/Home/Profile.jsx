@@ -28,8 +28,7 @@ const Profile = () => {
 <ProfileValues value={userCred.email}  name={"Email"} />
 
 <ProfileValues value={userCred.password}  name={"Password"} />
-<ProfileValues value={"Standard Plan"}  name={"Membership"} />
-<ProfileValues value={userCred.phoneNumber}  name={"Phone number"} />
+<ProfileValues value={"Standard Plan"}  name={"Membership"} />  
 <ProfileValues value={userCred.photoUrl}  name={"Photo"} />
 
 
