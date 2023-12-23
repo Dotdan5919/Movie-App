@@ -14,7 +14,9 @@ import { useParams } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
-import { onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth';
+
+
 
 const SignupPage = () => {
 
@@ -73,6 +75,15 @@ const [planType,setPlanType]=useState();
 
 
  
+const submitPlan=()=>{
+
+
+
+
+
+
+
+}
 
 
 
@@ -312,7 +323,7 @@ break;
 
 
   
-  <button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(3)}}>Next</button>
+  <button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(3);submitPlan(plan)}}>Next</button>
   
   
   </motion.div>

@@ -24,6 +24,8 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
 import { onAuthStateChanged } from 'firebase/auth'
 
+import {getFirestore,collection,addDoc,getDocs} from 'firebase/firestore'
+
 
 
 
@@ -65,7 +67,6 @@ const router=createBrowserRouter(
 
 
 
-
   
 
  
@@ -100,6 +101,37 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth=getAuth(app);
+
+const db=getFirestore(app);
+const colRef=collection(db,'Moplay')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const [isLoading,setIsLoading]=useState()
 
@@ -160,7 +192,7 @@ return ()=>{
 
   return (
     <div className='w-full h-screen bg-black   '>
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth}}>
+    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth,colRef}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>
 
