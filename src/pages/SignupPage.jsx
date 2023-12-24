@@ -15,6 +15,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
 import { onAuthStateChanged } from 'firebase/auth';
+import { addDoc } from 'firebase/firestore';
 
 
 
@@ -74,8 +75,14 @@ const [planType,setPlanType]=useState();
 
 
 
+const {colRef,userCred}=useContext(WatchlistContext);
+
  
-const submitPlan=()=>{
+const submitPlan=(Plan)=>{
+
+addDoc(colRef,{ Picture:"",UID:userCred.uid,Plan:Plan,email:userCred.email   })
+.then()
+.catch((err)=>{console.log(err.message)});
 
 
 
@@ -131,7 +138,17 @@ setStep(2)
 
 }).catch((err)=>{
 
-console.log(err.message)
+  console.log(err)
+  if(err.message==="Firebase: Error (auth/email-already-in-use).")
+  {
+alert("account already registered");
+
+  }
+  else{
+
+    console.log(err.message)
+  }
+
 
 })
 }
@@ -323,7 +340,7 @@ break;
 
 
   
-  <button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(3);submitPlan(plan)}}>Next</button>
+  <button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{setStep(3)}}>Next</button>
   
   
   </motion.div>
@@ -398,7 +415,7 @@ memebership and charge the membership fee(currently {}) to your payment method u
 
 
 
-<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{}}><NavLink to="/home/homepage">
+<button className='w-full bg-red-700 p-5 text-white text-xl rounded-md  hover:bg-red-600' onClick={()=>{submitPlan(plan)}}><NavLink to="/home/homepage">
 Start membership</NavLink></button>
 
 
