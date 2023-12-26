@@ -84,7 +84,7 @@ addDoc(colRef,{ Picture:"",UID:userCred.uid,Plan:Plan,email:userCred.email   })
 .then()
 .catch((err)=>{console.log(err.message)});
 
-adfa
+
 
 
 
