@@ -24,7 +24,7 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
 import { onAuthStateChanged } from 'firebase/auth'
 
-import {getFirestore,collection,addDoc,getDocs} from 'firebase/firestore'
+import {getFirestore,collection,addDoc,getDocs,query,where,onSnapshot} from 'firebase/firestore'
 
 
 
@@ -133,6 +133,9 @@ const colRef=collection(db,'Moplay')
 
 
 
+
+
+
 const [isLoading,setIsLoading]=useState()
 
 
@@ -143,6 +146,8 @@ const [isLoading,setIsLoading]=useState()
   const [WatchlistTrigger, setWatchlistTrigger] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [userCred, setUserCred] = useState();
+  const[profileImg,setProfileImg]=useState();
+
 
 
   const [inViewActive, setInViewActive] = useState(true);
@@ -159,8 +164,39 @@ if(user)
 {
 
 
-setIsLoggedIn(true);
-setUserCred(user);
+ setIsLoggedIn(true);
+ setUserCred(user);
+
+  
+
+ console.log("i logged in navbarLoggedIn");
+
+const q=query(colRef,where("email","==",user.email))
+
+onSnapshot(q,(snapshot)=>{
+
+  let userInfo=[];
+  snapshot.docs.forEach((doc)=>{
+
+    userInfo.push({...doc.data(),id:doc.id})
+
+   
+
+  })
+
+  setProfileImg(userInfo[0].Picture);
+
+
+console.log(profileImg)
+
+})
+
+
+
+
+
+
+
 
 
 
@@ -178,6 +214,8 @@ return ()=>{
 
   listen();
 }
+
+
 })
 
 

@@ -8,13 +8,14 @@ import { useNavigate } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import { Firestore,getDoc,onSnapshot,query,where } from 'firebase/firestore'
 import { WatchlistContext } from '../Contexts/WatchListContext'
 import Watch from '../sections/Welcome/Watch'
 
 const NavBarLoggedIn = () => {
   const [notificationActive,setNotificationActive]=useState(false);
   const [userNav,setUserNav]=useState(false);
-  const {WatchlistArray}=useContext(WatchlistContext);
+  const {WatchlistArray,colRef}=useContext(WatchlistContext);
 
 
   
@@ -61,6 +62,8 @@ navigate("/signin")
 
   }
 
+const[profileImg,setProfileImg]=useState();
+// let ProfileImg;
 
 
 
@@ -72,7 +75,28 @@ navigate("/signin")
         if(user)
         {
         
-        
+        console.log("i logged in navbarLoggedIn");
+
+const q=query(colRef,where("email","==",user.email))
+
+onSnapshot(q,(snapshot)=>{
+
+  let userInfo=[];
+  snapshot.docs.forEach((doc)=>{
+
+    userInfo.push({...doc.data(),id:doc.id})
+
+   
+
+  })
+
+  setProfileImg(userInfo[0].Picture);
+
+
+console.log(profileImg)
+
+})
+
           
         }
         else{
@@ -132,7 +156,7 @@ navigate("/signin")
 <div className="flex gap-2 items-center hover:bg-black hover:bg-opacity-40 justify-start p-5">
 <div className="w-10 h-20 flex justify-center items-center">
 <div className="rounded-full overflow-hidden  w-10 h-10">
-    <img src={Profilepics} alt="" className='w-10 h-10'/>
+    <img src={profileImg} alt="" className='w-10 h-10'/>
     </div>
 </div>
 <p className='text-xs text-left'> 
@@ -145,7 +169,7 @@ You have {WatchlistArray.length} movies in your watchlist
 <div className="flex gap-2 items-center  hover:bg-black hover:bg-opacity-40 justify-start p-5">
 <div className="w-10 h-20 flex justify-start items-center">
 <div className="rounded-full overflow-hidden  w-10 h-10">
-    <img src={Profilepics} alt="" className='w-10 h-10'/>
+    <img src="/images/Avatar.jpg" alt="" className='w-10 h-10'/>
     </div>
 </div>
 <p className='text-xs text-left '>
@@ -159,7 +183,8 @@ Check out our new Movies </NavLink> </p>
     </div>
     <div className="profile-picture flex items-center justify-center relative  gap-2">
     <div className="rounded-full overflow-hidden  flex items-center justify-center h-10">
-    <img src={Profilepics} alt="" className='w-10 h-10'/>
+    <img src={profileImg} alt="" className='w-10 h-10'/>
+    {console.log(profileImg)}
     </div>
     {userNav?(<IoIosArrowUp onClick={()=>{setUserNav(!userNav); notificationActive?setNotificationActive(false):setNotificationActive(false) }}/>
 ):(<IoIosArrowDown onClick={()=>{setUserNav(!userNav); notificationActive?setNotificationActive(false):setNotificationActive(false) }}/>

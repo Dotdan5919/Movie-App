@@ -8,7 +8,7 @@ import Basic from '../assets/images/Basic.jpg'
 import Standard from '../assets/images/Standard.jpg'
 
 import Premium from '../assets/images/Premium.jpg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { WatchlistContext } from '../Contexts/WatchListContext'
 import { useParams } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
@@ -38,7 +38,8 @@ const analytics = getAnalytics(app);
 const auth=getAuth(app);
 const user=auth.currentUser;
 const [isLoading,setIsLoading]=useState()
-const {isLoggedIn,setIsLoggedIn}=useContext(WatchlistContext)
+const {isLoggedIn,setIsLoggedIn}=useContext(WatchlistContext);
+const navigate=useNavigate();
 
 // deleteUser(user).then(()=>
 // {
@@ -80,7 +81,7 @@ const {colRef,userCred}=useContext(WatchlistContext);
  
 const submitPlan=(Plan)=>{
 
-addDoc(colRef,{ Picture:"",UID:userCred.uid,Plan:Plan,email:userCred.email   })
+addDoc(colRef,{ Picture:"/images/Avatar.jpg",UID:userCred.uid,Plan:Plan,email:userCred.email   })
 .then()
 .catch((err)=>{console.log(err.message)});
 
@@ -134,6 +135,8 @@ createUserWithEmailAndPassword(auth,email,password)
  console.log('user created',cred.user)
 // console.log('signedout');
 
+navigate("/signup/" + cred.user.email)
+
 setStep(2)
 
 }).catch((err)=>{
@@ -151,6 +154,9 @@ alert("account already registered");
 
 
 })
+
+
+
 }
 
 else{
@@ -448,25 +454,14 @@ useEffect(()=>
 {
 
   
-//   let currentUser=auth.currentUser;
-  
-//   setTimeout(() => {
-    
-//   currentUser=auth.currentUser;
-//   console.log(currentUser);
 
-//   if(currentUser!=null)
-//   {
-//   setStep(2)
-// }
-// setIsLoading(true)
-//   }, 2000);
  
 const listen=onAuthStateChanged(auth,(user)=>{
 
 
   if(user)
   {
+ console.log("i logged in signup");
   
   
     setStep(2);
