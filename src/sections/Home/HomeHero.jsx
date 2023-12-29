@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import NavBarLoggedIn from '../../components/NavBarLoggedIn'
 import Movie from '../../assets/videos/Avengers.mp4'
 import MoviePoster from '../../assets/images/end game.jpeg'
@@ -7,11 +7,14 @@ import ReactPlayer from 'react-player'
 import { Moviearray } from '../../components/MovieArray'
 import { HomeHeroContext } from '../../Contexts/HomeHeroContext'
 import { IoIosVolumeHigh, IoMdVolumeMute } from 'react-icons/io'
+import { WatchlistContext } from '../../Contexts/WatchListContext'
 const HomeHero = () => {
 
   const [videocontoller,setVideoController]=useState(1);
   const [PlayVideo,setplayVideo]=useState(false);
   const [volume, setVolume]=useState(true);
+  const {inViewActive,setInViewActive}=useContext(WatchlistContext);
+  
 
 const videoref=useRef(null);
 const [movies,setmovies]=useState(Moviearray);
@@ -50,12 +53,23 @@ BackgroundMovie();
 
 useEffect(()=>
 {
+  let timeoutId;
+
+  
+
+  timeoutId= inViewActive && setTimeout(() => {
+  
+     setplayVideo(true);
+
+
+  
+}, 5000);
 
  
-
+return ()=>clearTimeout(timeoutId); //Clears timeout
  
 
-})
+},[])
 
   return (
     <HomeHeroContext.Provider  value={{videocontoller,setVideoController,movies,setmovies,isClicked,setIsClicked,PlayVideo,setplayVideo}}>

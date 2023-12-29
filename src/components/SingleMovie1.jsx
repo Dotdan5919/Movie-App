@@ -5,6 +5,8 @@ import { WatchlistContext } from '../Contexts/WatchListContext'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 
+// this component is for the home hero screen alone
+
 
 const SingleMovie1 = (props) => {
 
@@ -12,7 +14,7 @@ const SingleMovie1 = (props) => {
   const {inViewActive,setInViewActive}=useContext(WatchlistContext);
 
   const variant={initial:{scale:1},animate:{scale:1.3}};
-  
+
 
   const handlePlay=()=>
   {
@@ -20,7 +22,7 @@ const SingleMovie1 = (props) => {
 
    setplayVideo(!PlayVideo);
   
-
+// controls the palying of the video
   }
  
   
@@ -28,17 +30,7 @@ useEffect(()=>
 
 
 {
-  let timeoutId;
-
   
-
-  timeoutId= inViewActive && setTimeout(() => {
-  
-     setplayVideo(true);
-    // setIsClicked(props.id);
-
-  
-}, 5000);
 
 
 
@@ -48,12 +40,12 @@ if(inViewActive===false){
 
 }
 
-return ()=>clearTimeout(timeoutId); //Clears timeout
 
-})
+
+},[inViewActive])
 
   
-    // const source=require(props.src);
+   
   return (
     <motion.div className='text-white w-[150px] shadow-lg flex flex-col gap-2 h-full'   variants={variant}   initial="initial" animate={isClicked===props.id?"animate":"initial"} onClick={()=>{props.clicker(props.id); isClicked===props.id?setIsClicked(null):setIsClicked(props.id);handlePlay()}}   >
       

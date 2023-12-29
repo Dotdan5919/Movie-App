@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
 import { WatchlistContext } from '../Contexts/WatchListContext';
-import { updateProfile,updatePhoneNumber,updatePassword } from 'firebase/auth';
+import { updateProfile,updatePassword } from 'firebase/auth';
 import { Firestore,updateDoc,query,where ,onSnapshot} from 'firebase/firestore';
 
 
@@ -18,7 +18,7 @@ const user=auth.currentUser;
 
 
 const handleSubmit=()=>{
-  let update;
+  let update;  //this value is used to update the value of the selected collection element in firebase auth
 switch(props.name)
 {
 
@@ -28,8 +28,8 @@ switch(props.name)
 
     }
     updateProfile(user,update)
-.then(()=>{console.log("updated")})
-.catch((err)=>{console.log(err.message)})
+.then(()=>{})
+.catch((err)=>{  })
 
     break;
 
@@ -52,48 +52,11 @@ switch(props.name)
    
 
     break;
-    case "Photo":
-      update={
-        photoURL:inputRef.current.value
-  
-      }
-      const q=query(colRef,where("email","==",user.email));
-
-      let userInfo=[];
-      onSnapshot(q,(snapshot)=>{
-
-        
-        snapshot.docs.forEach((doc)=>{
-      
-          userInfo.push({...doc.data(),id:doc.id})
-      
-         
-      
-        })
-      })
-// userInfo[0].id;
-
-      
-
-      // const docRef=;
-
-      updateDoc(q,{
-
-        Picture:"1"
-      })
+   
+    
    
 
-    break;
-    case "Password":
-      update={
-        photoURL:inputRef.current.value
-  
-      }
-   updatePassword(user,inputRef.current.value)
-   .then(()=>{console.log("password updated")})
-   .catch((err)=>{console.log(err.message)})
-
-    break;
+    
 
 
     default:
@@ -120,7 +83,8 @@ switch(props.name)
   return (
     <div className="flex justify-between">
 
-   {inputActive?(<h1 className='text-gray-400'>{newPropsVal}</h1>):( <input  value={newPropsVal} ref={inputRef} onChange={(e)=>setNewPropsVal(e.target.value)} type={props.name==="Password"?("password"):('text')} name={props.name}  className='p-3' />      )} 
+   {inputActive?(<h1 className='text-gray-400'>{newPropsVal}</h1>):
+   ( <input  value={newPropsVal} ref={inputRef} onChange={(e)=>setNewPropsVal(e.target.value)} type={props.name==="Password"?("password"):('text')} name={props.name}  className='p-3' />      )} 
     
     <p className='text-red-400 hover:text-red-600 cursor-pointer' onClick={()=>{setInputActive(!inputActive);text==="Change"?setText("Save"):setText("Change"); text==="Save" && handleSubmit()}} > {text} {props.name}</p>
     </div>

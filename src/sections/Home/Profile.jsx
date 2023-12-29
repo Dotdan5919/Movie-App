@@ -7,7 +7,7 @@ const Profile = () => {
     const {userCred,setUserCred,setMembership,membership,setProfileImg,profileImg}=useContext(WatchlistContext);
 
 
-    console.log(userCred);
+   
 
 
 

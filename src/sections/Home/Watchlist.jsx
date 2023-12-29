@@ -17,7 +17,7 @@ const Watchlist = (props) => {
           SinceYouWatched.scrollLeft-=700;
           
          
-          console.log("left")
+       
 
       }
 
@@ -25,7 +25,7 @@ const Watchlist = (props) => {
       {
 
           SinceYouWatched.scrollLeft+=700;
-          console.log("right")
+         
 
 
 

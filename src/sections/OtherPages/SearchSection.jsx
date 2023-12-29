@@ -47,7 +47,7 @@ let Arrayval;
             fetchData();
             
         
-        console.log(searchterm.id);
+       
         
         
         },[url,searchterm]);

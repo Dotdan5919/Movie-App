@@ -173,7 +173,7 @@ if(user)
 
   
 
- console.log("i logged in navbarLoggedIn");
+ 
 
 const q=query(colRef,where("email","==",user.email))
 

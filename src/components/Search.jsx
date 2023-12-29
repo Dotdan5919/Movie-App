@@ -16,14 +16,11 @@ const Search = () => {
     let search=()=>{
 
       
-        console.log(searchTerm);
 
 
     }
 
-    // const input=document.getElementById("input");
-
-    // input.value="hi";
+ 
     
     useEffect(()=>
     {
@@ -33,10 +30,11 @@ const Search = () => {
 
 
             setfilled(false);
-            console.log("i am empty")
-            console.log(pathname);
+           
             
          searchActive && navigate('/home/homepage');
+
+         //if the search bar is empty navigate to homepage
         }
         else
         {
@@ -44,10 +42,12 @@ const Search = () => {
 
             setfilled(true);
             navigate('/home/search/' + searchTerm);
+
+            // if the search bar is filled navigate to search page
         }
 
 
-console.log(searchTerm)
+
 
 
     },[searchTerm,setSearchTerm])

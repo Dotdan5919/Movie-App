@@ -18,7 +18,7 @@ const handleClick=(direction)=>
             SinceYouWatched.scrollLeft-=700;
             
            
-            console.log("left")
+           
 
         }
 
@@ -26,7 +26,7 @@ const handleClick=(direction)=>
         {
 
             SinceYouWatched.scrollLeft+=700;
-            console.log("right")
+           
 
 
 

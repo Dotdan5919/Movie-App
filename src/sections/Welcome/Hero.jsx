@@ -35,8 +35,7 @@ emailjs.sendForm('service_tbmx7l6', 'template_pwgt1ob',form.current, 'vsgPr6d4Be
       
       (result) => {
         
-        console.log(result.text);
-        
+       
         setSendState(false);
       
 
@@ -45,7 +44,7 @@ navigate("/signup/"+ emailRef.current.value);
         emailRef.current.value="";
 
     }, (error) => {
-        console.log(error.text);
+        
     })
 
   }
@@ -71,7 +70,7 @@ const verifyMe=async()=>
     const response = await fetch(url, options);
     const result = await response.json();
 
-    console.log(result.block);
+   
    const resultValue=await result.block;
 
 if(resultValue===true)
@@ -122,7 +121,7 @@ const handleValue=()=>
 const send=(e)=>{
   e.preventDefault();
 
-  console.log(verifyEmail);
+
   
   
 

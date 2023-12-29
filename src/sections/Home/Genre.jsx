@@ -115,16 +115,16 @@ switch(activeNav)
     <div className='p-7 flex flex-col gap-5 bg-black w-screen'>
       <h1 className='text-white w-full   text-center text-2xl font-bold '> Find your favourite genre</h1>
     <div className="flex sm:gap-3 justify-center">
-      <GenreNav name="Action" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
-      <GenreNav name="Kids" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
-      <GenreNav name="Superheroes" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
-      <GenreNav name="Lovestory" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
-      <GenreNav name="Latest" click={(x)=>setActiveNav(x)} activeNav={activeNav}/>
+      <GenreNav name="Action" click={(val)=>setActiveNav(val)} activeNav={activeNav}/>
+      <GenreNav name="Kids" click={(val)=>setActiveNav(val)} activeNav={activeNav}/>
+      <GenreNav name="Superheroes" click={(val)=>setActiveNav(val)} activeNav={activeNav}/>
+      <GenreNav name="Lovestory" click={(val)=>setActiveNav(val)} activeNav={activeNav}/>
+      <GenreNav name="Latest" click={(val)=>setActiveNav(val)} activeNav={activeNav}/>
 
 
 
       </div>
-      <div className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-1    self-center gap-12 overflow-hidden   ">
+      <div className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2    self-center gap-12 overflow-hidden   ">
       
       {Array && Array.slice(0,ArrayLimit).map((e)=>{
 

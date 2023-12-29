@@ -3,8 +3,12 @@ import { IoCloseSharp, IoMdAdd, IoMdClose } from 'react-icons/io';
 import { motion } from 'framer-motion';
 
 const MiniDropDown = ({title,question,paragraph2}) => {
+
+  //this minidropdown is to toggle the description of frequently asked questions in the welcome page
     const[activeDrop,setActiveDrop]=useState(false);
     const[dropClass,setDropClass]=useState();
+
+    
 // this is variant for framer-motion
 const FreqVariant={
 
@@ -39,6 +43,8 @@ useEffect(
 
     activeDrop?setDropClass(" h-fit"):setDropClass("h-0 hidden ");
 
+    //activeDrop state controls the class with the code above
+
 }
 
 
@@ -46,7 +52,7 @@ useEffect(
 
 
   return (
-    <motion.div  variants={FreqVariant} animate="visible" initial="hidden" transition="transition" className=' w-3/4  flex flex-col text-left text-[25px] gap-1 '>
+    <motion.div  variants={FreqVariant} animate="visible" initial="hidden" transition="transition" className=' w-11/12  flex flex-col text-left text-[25px] gap-1 '>
     <div className="w-full bg-gray-700 flex justify-between p-6 cursor-pointer" onClick={()=>{activeDrop?setActiveDrop(false):setActiveDrop(true)}}>
       <h1 className='font-bold'>{title}</h1>
       { activeDrop?(<IoMdClose/>):(<IoMdAdd/>) }

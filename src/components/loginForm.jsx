@@ -27,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth=getAuth(app);
 const [errorSetter,setErrorSetter]=useState();
-let errorListner;
+let errorListner;  
 const handleSubmit=(e)=>
 {
   e.preventDefault();
@@ -40,7 +40,7 @@ signInWithEmailAndPassword(auth,UserEmail,UserPassword).then(
 (cred)=>{
 
 
-  console.log(cred.user);
+  // console.log(cred.user);
   setErrorSetter(false);
   e.target.reset();
   navigate("/home/homepage");
@@ -58,7 +58,7 @@ signInWithEmailAndPassword(auth,UserEmail,UserPassword).then(
 
   errorListner="Incorrect Details";
   setErrorSetter(true);
-console.log(err.message);
+
 
 }
 
@@ -80,7 +80,7 @@ useEffect(()=>
 
 
   return (
-   <form className=' bg-black lg:w-[30%] sm:w-[50%] w-[70%] bg-opacity-40   text-white p-12 grid gap-7 grid-rows-6 relative' onSubmit={(e)=>{handleSubmit(e)}}>
+   <form className=' bg-black lg:w-[30%] sm:w-[50%] w-[95%] bg-opacity-40   text-white p-12 grid gap-7 grid-rows-6 relative' onSubmit={(e)=>{handleSubmit(e)}}>
    
    <NavLink to="/">   <img src={logo} alt="" className='w-30 h-10  -ml-2' /></NavLink>
 

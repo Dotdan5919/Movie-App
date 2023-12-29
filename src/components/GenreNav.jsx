@@ -2,7 +2,10 @@ import React from 'react'
 
 const GenreNav = (props) => {
 
-    let BtnClass; 
+  // this code is for navigating to different genre in the home page
+  //props.click changes the state of the Active Nav
+
+    let BtnClass;  
         
     if(props.name===props.activeNav){
 

@@ -11,7 +11,7 @@ import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmai
 
 const NavBar = (props) => {
 
-
+// this navbar is used when user is not logged in
   const firebaseConfig = {
     apiKey: "AIzaSyB0BZUtbN-CIb7yV71UoC4iMwifSkqoDnY",
     authDomain: "movie-app-16fcb.firebaseapp.com",
@@ -40,7 +40,7 @@ const NavBar = (props) => {
 ()=>{
 
   
-  console.log("loggedOut");
+  
 }
 
     )
@@ -65,13 +65,13 @@ const NavBar = (props) => {
       
       
         setIsLoggedIn(true)
-        console.log(isLoggedIn)
+        
       }
       else{
       
       
         setIsLoggedIn(false)
-        console.log(isLoggedIn)
+        
       
       }
 
@@ -79,6 +79,8 @@ const NavBar = (props) => {
       return ()=>{
 
         listen();
+
+        //the above method listens to any authentication changes in the application
       }
 
     },[]);

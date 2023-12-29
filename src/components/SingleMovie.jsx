@@ -17,6 +17,8 @@ const SingleMovie = (props) => {
 
     };
     const store=()=>
+
+    // this function is to store a your watchlist in localStorage API
     {
       const getVal=localStorage.getItem('WatchListArray');
      
@@ -30,6 +32,7 @@ const SingleMovie = (props) => {
       
         // if there is nothing in the local storage watchlist
        localStorage.setItem('WatchListArray',JSON.stringify(newValue))      
+      //  converts the value to a string and stores it
 
     }
 
@@ -54,7 +57,10 @@ const SingleMovie = (props) => {
     }
 
     const remove=()=>
+
     {
+
+      // removes it from localstorage
       const getVal=localStorage.getItem('WatchListArray');
      
       
@@ -64,16 +70,7 @@ const SingleMovie = (props) => {
       
       if(getVal===""){
 
-      //  const newValue=[{
-      //    Title:props.name,
-      //    Year:props.year,
-      //    Type:props.type,
-      //    Poster:props.image
- 
-      //  }];
-     
-       // if there is nothing in the local storage watchlist
-      // localStorage.setItem('WatchListArray',JSON.stringify(newValue))      
+       
 
    }
 
@@ -112,6 +109,7 @@ useEffect(()=>
   {
 
     setfav(true);
+    //  this  set heart active 
    
   }
   else{
@@ -125,9 +123,11 @@ useEffect(()=>
   {
 setNew(true);
 
+// this sets the new button active
+
   }
 
-  // console.log(JSON.parse(localStorage.getItem('WatchListArray')))
+
 
 
 
@@ -136,7 +136,7 @@ setNew(true);
 
   return (
     <AnimatePresence>
-    <motion.div className=' sm:w-52 sm:h-[320px]  relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}} whileInView={{x:0}} initial={{x:"-1vw"}} whileHover={{scale:1.1}} >
+    <motion.div className=' sm:w-52 sm:h-[320px] w-48 h-[320px]  relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}} whileInView={{x:0}} initial={{x:"-1vw"}} whileHover={{scale:1.1}} >
     {New?(<button className='bg-red-700 p-2  absolute shadow-lg text-white text-xs right-3 top-4 rounded-lg'>New</button>):""}
 
     <img src={props.image} alt="" className=' w-96  h-full object-cover' />

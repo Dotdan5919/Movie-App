@@ -17,8 +17,7 @@ const HomePage = () => {
   const{ref,inView,entry}=useInView({threshold:0})
 
 inView?setInViewActive(true):setInViewActive(false);
-console.log("inview"+ ""+inView);
-console.log("inviewState"+ " "+inViewActive);
+
 
 
   useEffect(() => {
@@ -35,31 +34,18 @@ console.log("inviewState"+ " "+inViewActive);
 
       
       localStorage.setItem('WatchListArray',JSON.stringify(WatchlistArray));
-      // console.log("watchlist created");
-      //  const newWatchlistArray=JSON.parse(checkLocalStorage);
      
-      //  setWatchlistArray(...newWatchlistArray);
-      // localStorage.setItem('watchlistArray',JSON.stringify(WatchlistArray));
-      // newWatchlistArray.push(...WatchlistArray);
-     
-    
     }
     else{
 
      
-      // console.log("watchlist stated stored");
-      
-
-     
-      // localStorage.setItem('watchlistArray',JSON.stringify(WatchlistArray));
-
+   
      
 
     }
     
-     // const watchlistArray=JSON.parse(localStorage.getItem('watchlistArray'));
    
-    
+     
  
    
   },[]); // Empty dependency array ensures useEffect runs once when the component mounts

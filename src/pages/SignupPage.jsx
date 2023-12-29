@@ -123,7 +123,7 @@ e.preventDefault();
   errorLabel.current.textContent="Ok"
   errorLabel.current.className="bg-green-400 text-white p-2"
 
-  // signOut(auth).then().catch((err)=>{console.log(err.message)})
+
 createUserWithEmailAndPassword(auth,email,password)
 
 .then((cred)=>
@@ -133,7 +133,7 @@ createUserWithEmailAndPassword(auth,email,password)
 
  
  console.log('user created',cred.user)
-// console.log('signedout');
+
 
 navigate("/signup/" + cred.user.email)
 
@@ -141,7 +141,7 @@ setStep(2)
 
 }).catch((err)=>{
 
-  console.log(err)
+  
   if(err.message==="Firebase: Error (auth/email-already-in-use).")
   {
 alert("account already registered");
@@ -149,7 +149,7 @@ alert("account already registered");
   }
   else{
 
-    console.log(err.message)
+   
   }
 
 
@@ -209,7 +209,7 @@ case 1:
 
 stepContent=(
  
-  <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 md:w-[60%] w-[80%]'>  
+  <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 md:w-[60%] w-[95%]'>  
 <p>Step 1 of 3</p>
 <h1 className='text-[35px] font-bold'>Welcome <br/>
 Joining Moplay is easy. 
@@ -242,7 +242,7 @@ break;
 
     stepContent=(  
         
-      <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 w-[60%]'>  
+      <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 md:w-[60%] w-[95%]'>  
     <p>Step 2 of 3</p>
   <h1 className='text-[35px] font-bold'>
   Choose your plan.
@@ -363,7 +363,7 @@ break;
 
   stepContent=(  
         <AnimatePresence>
-    <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0,delay:.5}} animate="final" className='grid gap-7 w-[60%]'>  
+    <motion.div variants={variantAnim} initial="initial" exit={{x:-100,opacity:0,delay:.5}} animate="final" className='grid gap-7 md:w-[60%] w-[92%]'>  
   
 
     <p>Step 3 of 3</p>
@@ -461,7 +461,7 @@ const listen=onAuthStateChanged(auth,(user)=>{
 
   if(user)
   {
- console.log("i logged in signup");
+
   
   
     setStep(2);

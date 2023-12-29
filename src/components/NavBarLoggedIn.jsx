@@ -54,6 +54,8 @@ const firebaseConfig = {
 
 navigate("/signin")
 
+// signout then return to signin page
+
     })
     
 
@@ -76,6 +78,8 @@ if(searchActive===true)
 setNotificationActive(false);
 setUserNav(false);
 
+//this tells notication and user navigation to close when the search bar is open this also goes vice-versal
+
 
 }
 
@@ -86,27 +90,9 @@ setUserNav(false);
         if(user)
         {
         
-        console.log("i logged in navbarLoggedIn");
-
-// const q=query(colRef,where("email","==",user.email));
-
-// onSnapshot(q,(snapshot)=>{
-
-//   let userInfo=[];
-//   snapshot.docs.forEach((doc)=>{
-
-//     userInfo.push({...doc.data(),id:doc.id})
-
-   
-
-//   })
-
-//   setProfileImg(userInfo[0].Picture);
+        
 
 
-// console.log(profileImg)
-
-// })
 
           
         }
@@ -121,6 +107,9 @@ setUserNav(false);
         return ()=>{
   
           listen();
+
+
+          //listens for auth changes in the application
         }
     })
 
@@ -162,9 +151,9 @@ setUserNav(false);
     <Search/>
     <IoIosNotifications className='cursor-pointer hover:text-red-400 transition-all duration-300' onClick={()=>{setNotificationActive(!notificationActive);userNav?setUserNav(false):setUserNav(false);searchActive?setSearchActive(false):setSearchActive(false)}}/>
 
-    <div className={notificationActive?("flex flex-col absolute bg-black  bg-opacity-30 w-50  top-10 md:right-1 -right-7 w-80 h-70 overflow-y-hidden"):"hidden"} onClick={()=>{setNotificationActive(false)}}>
+    <div className={notificationActive?("flex flex-col absolute bg-black  bg-opacity-70 w-50  top-10 md:right-1 -right-7 w-80 h-70 overflow-y-hidden"):"hidden"} onClick={()=>{setNotificationActive(false)}}>
 <h1 className='p-3 bg-teal-100 bg-opacity-20'>Notification</h1>
-<div className="flex gap-2 items-center hover:bg-black hover:bg-opacity-40 justify-start p-5">
+<div className="flex gap-2 items-center hover:bg-black hover:bg-opacity-70 justify-start p-5">
 <div className="w-10 h-20 flex justify-center items-center">
 <div className="rounded-full overflow-hidden  w-10 h-10">
     <img src={profileImg} alt="" className='w-10 h-10'/>
