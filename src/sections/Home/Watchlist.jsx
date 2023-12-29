@@ -61,7 +61,7 @@ useEffect(()=>{
     <h1 className={props.grid==="1"?'hidden':"text-white font-bold  p-10 w-full text-2xl"} > Watchlist</h1>
 
     <div className={props.grid==="1"?'grid grid-rows-1  grid-flow-col gap-7 w-full justify-start overflow-scroll':
-    "grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2 w-11/12 gap-4  p-3   "
+    "grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2 sm:w-auto w-screen gap-4  p-3   "
   
   
   } id="watchlist">

@@ -19,7 +19,7 @@ const Profile = () => {
 
   return (
     <div className='w-full h-full bg-slate-50 flex justify-center '>
-      <div className="w-[70%] p-12 flex flex-col gap-4">
+      <div className="sm:w-[70%] w-[100%] p-12 flex flex-col gap-4">
 <h1 className='font-bold text-2xl '>Profile</h1>
 <hr className='w-full border-1  bg-black border-black ' />
 

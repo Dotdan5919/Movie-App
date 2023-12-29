@@ -140,7 +140,7 @@ const [isLoading,setIsLoading]=useState()
 
 
 
-
+const [searchActive,setSearchActive]=useState(false);
 
   const [WatchlistArray, setWatchlistArray] = useState([]);
   const [WatchlistTrigger, setWatchlistTrigger] = useState(false);
@@ -236,7 +236,7 @@ return ()=>{
 
   return (
     <div className='w-full h-screen bg-black   '>
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth,colRef,membership,setMembership,profileImg,setProfileImg}}>
+    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth,colRef,membership,setMembership,profileImg,setProfileImg,searchActive,setSearchActive}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>
 

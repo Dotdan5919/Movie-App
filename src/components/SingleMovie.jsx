@@ -136,7 +136,7 @@ setNew(true);
 
   return (
     <AnimatePresence>
-    <motion.div className=' w-52 h-[320px] relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}} whileInView={{x:0}} initial={{x:"-1vw"}} whileHover={{scale:1.1}} >
+    <motion.div className=' sm:w-52 sm:h-[320px]  relative hover:scale-110   transition-all duration-700' exit={{x:-100,opacity:0, scale:0}} whileInView={{x:0}} initial={{x:"-1vw"}} whileHover={{scale:1.1}} >
     {New?(<button className='bg-red-700 p-2  absolute shadow-lg text-white text-xs right-3 top-4 rounded-lg'>New</button>):""}
 
     <img src={props.image} alt="" className=' w-96  h-full object-cover' />

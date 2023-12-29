@@ -55,9 +55,9 @@ let Arrayval;
     
 
   return (
-    <div className='flex-flex-col pt-20 px-10 '>
+    <div className='w-11/12 justify-center mx-auto  pt-20 sm:px-5  flex flex-col'>
     <h1 className="text-white font-bold  p-10 w-full text-2xl" > Search</h1>
-<div className='grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2    self-center gap-12 '>
+<div className='grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-3   grid-cols-2 sm:w-auto w-screen p-2 sm:p-auto  self-center sm:gap-12 gap-4   '>
     {Array && Array.map((e)=>{
 
         if(parseInt(e.Year)>2000)

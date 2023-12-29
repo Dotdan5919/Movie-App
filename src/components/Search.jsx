@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 import { IoIosClose, IoIosSearch } from 'react-icons/io'
 import { AnimatePresence, animate, motion } from 'framer-motion';
 import { useLocation, useNavigate, } from 'react-router-dom';
+import { WatchlistContext } from '../Contexts/WatchListContext';
 const Search = () => {
 
-    const [searchActive,setSearchActive]=useState(false);
+    const {searchActive,setSearchActive}=useContext(WatchlistContext);
     const [filled,setfilled]=useState(false);
     const input=useRef();
     const [searchTerm,setSearchTerm]=useState('');

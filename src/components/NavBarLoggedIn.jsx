@@ -15,7 +15,7 @@ import Watch from '../sections/Welcome/Watch'
 const NavBarLoggedIn = () => {
   const [notificationActive,setNotificationActive]=useState(false);
   const [userNav,setUserNav]=useState(false);
-  const {WatchlistArray,colRef,setProfileImg,profileImg,setMembership,membership}=useContext(WatchlistContext);
+  const {WatchlistArray,colRef,setProfileImg,profileImg,setMembership,membership,searchActive,setSearchActive}=useContext(WatchlistContext);
 
 
   
@@ -69,6 +69,17 @@ navigate("/signin")
 
   useEffect(()=>
   {
+
+if(searchActive===true)
+{
+
+setNotificationActive(false);
+setUserNav(false);
+
+
+}
+
+
     const listen=onAuthStateChanged(auth,(user)=>{
 
 
@@ -149,9 +160,9 @@ navigate("/signin")
 
     <div className='flex gap-2 text-lg items-center relative'>
     <Search/>
-    <IoIosNotifications className='cursor-pointer hover:text-red-400 transition-all duration-300' onClick={()=>{setNotificationActive(!notificationActive);userNav?setUserNav(false):setUserNav(false)}}/>
+    <IoIosNotifications className='cursor-pointer hover:text-red-400 transition-all duration-300' onClick={()=>{setNotificationActive(!notificationActive);userNav?setUserNav(false):setUserNav(false);searchActive?setSearchActive(false):setSearchActive(false)}}/>
 
-    <div className={notificationActive?("flex flex-col absolute bg-black  bg-opacity-30 w-50  top-10 right-1  w-80 h-70 overflow-y-hidden"):"hidden"} onClick={()=>{setNotificationActive(false)}}>
+    <div className={notificationActive?("flex flex-col absolute bg-black  bg-opacity-30 w-50  top-10 md:right-1 -right-7 w-80 h-70 overflow-y-hidden"):"hidden"} onClick={()=>{setNotificationActive(false)}}>
 <h1 className='p-3 bg-teal-100 bg-opacity-20'>Notification</h1>
 <div className="flex gap-2 items-center hover:bg-black hover:bg-opacity-40 justify-start p-5">
 <div className="w-10 h-20 flex justify-center items-center">
@@ -182,15 +193,19 @@ Check out our new Movies </NavLink> </p>
     
     </div>
     <div className="profile-picture flex items-center justify-center relative  gap-2">
-    <div className="rounded-full overflow-hidden  flex items-center justify-center h-10">
-    <img src={profileImg} alt="" className='w-10 h-10'/>
-    {console.log(profileImg)}
+    <div className="rounded-full overflow-hidden   items-center justify-center h-10">
+    {searchActive?"":(<img src={profileImg} alt="" className='w-10 h-10'/>)}
+ 
     </div>
-    {userNav?(<IoIosArrowUp onClick={()=>{setUserNav(!userNav); notificationActive?setNotificationActive(false):setNotificationActive(false) }}/>
-):(<IoIosArrowDown onClick={()=>{setUserNav(!userNav); notificationActive?setNotificationActive(false):setNotificationActive(false) }}/>
+    {userNav?(<IoIosArrowUp onClick={()=>{setUserNav(!userNav); notificationActive?setNotificationActive(false):setNotificationActive(false);searchActive?setSearchActive(false):setSearchActive(false) }}/>
+):(<IoIosArrowDown onClick={()=>{setUserNav(!userNav); notificationActive?setNotificationActive(false):setNotificationActive(false);searchActive?setSearchActive(false):setSearchActive(false) }}/>
 )}
     {   
-    userNav?(  <div className="w-[100px] flex flex-col py-5 absolute -left-12 top-12 bg-black bg-opacity-20 mr-2">
+    userNav?(  <div className=" md:w-[100px]  w-[150px] -left-20  flex flex-col py-5 absolute md:-left-12 top-12 bg-black bg-opacity-50 mr-2">
+    <li className='list-none p-2 cursor-pointer text-center hover:bg-slate-400 w-full md:hidden flex justify-center items-center' ><NavLink className="flex justify-center items-center" to="/home/exclusive">Exclusive</NavLink></li>
+    <li className='list-none p-2 cursor-pointer text-center hover:bg-slate-400 w-full md:hidden flex justify-center items-center' ><NavLink className="flex justify-center items-center" to="/home/trending">Trending</NavLink></li>
+    <li className='list-none p-2 cursor-pointer text-center hover:bg-slate-400 w-full md:hidden flex justify-center items-center' ><NavLink className="flex justify-center items-center" to="/home/upcoming">Upcoming</NavLink></li>
+    <li className='list-none p-2 cursor-pointer text-center hover:bg-slate-400 w-full md:hidden flex justify-center items-center' ><NavLink className="flex justify-center items-center" to="/home/watchlist">Watchlist</NavLink></li>
     <li className='list-none p-2 cursor-pointer text-center hover:bg-slate-400 w-full' onClick={()=>{setUserNav(false)}}><NavLink to="/home/profile">Profile</NavLink></li>
     <li className='list-none p-2 cursor-pointer text-center hover:bg-slate-400 w-full' onClick={()=>{handleSignOut()}}>Signout</li>
 </div>):""
@@ -200,7 +215,7 @@ Check out our new Movies </NavLink> </p>
 }
 
 
-  
+
 
     </div>
 

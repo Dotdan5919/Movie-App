@@ -2,7 +2,7 @@ import React from 'react'
 
 const GenreNav = (props) => {
 
-    let BtnClass;
+    let BtnClass; 
         
     if(props.name===props.activeNav){
 

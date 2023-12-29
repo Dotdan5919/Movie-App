@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { FirebaseApp,initializeApp } from 'firebase/app'
 import { signInWithEmailAndPassword,getAuth } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import logo from '../assets/logos/moplay logo_1.png'
 
 
 const LoginForm = () => {
@@ -80,6 +81,9 @@ useEffect(()=>
 
   return (
    <form className=' bg-black lg:w-[30%] sm:w-[50%] w-[70%] bg-opacity-40   text-white p-12 grid gap-7 grid-rows-6 relative' onSubmit={(e)=>{handleSubmit(e)}}>
+   
+   <NavLink to="/">   <img src={logo} alt="" className='w-30 h-10  -ml-2' /></NavLink>
+
    <h1 className='text-[30px] font-bold'>Sign in</h1>
 
 
