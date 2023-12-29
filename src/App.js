@@ -147,6 +147,10 @@ const [isLoading,setIsLoading]=useState()
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [userCred, setUserCred] = useState();
   const[profileImg,setProfileImg]=useState();
+  const[membership,setMembership]=useState();
+ 
+
+
 
 
 
@@ -185,9 +189,11 @@ onSnapshot(q,(snapshot)=>{
   })
 
   setProfileImg(userInfo[0].Picture);
+  setMembership(userInfo[0].Plan);
 
 
-console.log(profileImg)
+
+
 
 })
 
@@ -230,7 +236,7 @@ return ()=>{
 
   return (
     <div className='w-full h-screen bg-black   '>
-    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth,colRef}}>
+    <WatchlistContext.Provider value={{WatchlistArray,setWatchlistArray,WatchlistTrigger,setWatchlistTrigger,inViewActive,setInViewActive,isLoggedIn,setIsLoggedIn,userCred,setUserCred,auth,colRef,membership,setMembership,profileImg,setProfileImg}}>
     <RouterProvider router={router}/>
     </WatchlistContext.Provider>
 

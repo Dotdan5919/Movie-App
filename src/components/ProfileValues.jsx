@@ -1,11 +1,12 @@
 import React, { useContext, useRef, useState } from 'react'
 import { WatchlistContext } from '../Contexts/WatchListContext';
 import { updateProfile,updatePhoneNumber,updatePassword } from 'firebase/auth';
+import { Firestore,updateDoc,query,where ,onSnapshot} from 'firebase/firestore';
 
 
 const ProfileValues = (props) => {
 
-  const {auth}=useContext(WatchlistContext);
+  const {auth,colRef}=useContext(WatchlistContext);
 const[inputActive,setInputActive]=useState(true);
 const[text,setText]=useState("Change");
 const[newPropsVal,setNewPropsVal]=useState(props.value);
@@ -29,9 +30,12 @@ switch(props.name)
     updateProfile(user,update)
 .then(()=>{console.log("updated")})
 .catch((err)=>{console.log(err.message)})
+
     break;
 
-    case "Phone number":
+
+
+    case "Membership":
       update={
         phoneNumber:inputRef.current.value
   
@@ -44,6 +48,7 @@ switch(props.name)
         email:inputRef.current.value
   
       }
+
    
 
     break;
@@ -52,6 +57,30 @@ switch(props.name)
         photoURL:inputRef.current.value
   
       }
+      const q=query(colRef,where("email","==",user.email));
+
+      let userInfo=[];
+      onSnapshot(q,(snapshot)=>{
+
+        
+        snapshot.docs.forEach((doc)=>{
+      
+          userInfo.push({...doc.data(),id:doc.id})
+      
+         
+      
+        })
+      })
+// userInfo[0].id;
+
+      
+
+      // const docRef=;
+
+      updateDoc(q,{
+
+        Picture:"1"
+      })
    
 
     break;

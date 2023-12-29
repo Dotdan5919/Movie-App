@@ -209,7 +209,7 @@ case 1:
 
 stepContent=(
  
-  <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 w-[60%]'>  
+  <motion.div  variants={variantAnim} initial="initial"  exit={{x:-100,opacity:0}} animate="final" className='grid gap-7 md:w-[60%] w-[80%]'>  
 <p>Step 1 of 3</p>
 <h1 className='text-[35px] font-bold'>Welcome <br/>
 Joining Moplay is easy. 

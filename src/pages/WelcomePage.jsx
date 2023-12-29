@@ -10,7 +10,7 @@ import FooterSection from '../sections/Welcome/FooterSection'
 
 const WelcomePage = () => {
   return (
-    <div className='w-[100vw] overflow-x-hidden'>
+    <div className='w-[100vw] overflow-x-hidden bg-black'>
       
 
 <Hero/>

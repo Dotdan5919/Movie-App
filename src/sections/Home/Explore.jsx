@@ -7,9 +7,9 @@ const Explore = () => {
     <div className="absolute bg-gradient-to-l from-transparent  to-blue-950 w-full h-full z-[1]"></div>
     <div className="absolute bg-moviecollage w-full h-full z-[0]"></div>
 
-    <h1 className='text-white font-bold  text-[25px] lg:col-span-3 col-span-6 relative  z-[3]'>Explore more and more exclusive movies with Moplay Premium</h1>
-    <button className='hover:shadow-lg bg-red-700 col-start-1 md:col-end-2 col-end-5 text-white rounded-lg   shadow-md lg:h-10 h-12 relative z-[3] self-center'>Get updated</button>
-    <p className='text-white text-sm  md:col-span-2 col-span-4 col-start-1 md:col-start-2 justify-items-center place-items-center relative z-[3]   '>Only 45/month in the first year.</p>
+    <h1 className='text-white font-bold  text-[25px] lg:col-span-3 col-span-6 relative    z-[3]'>Explore more and more exclusive movies with Moplay Premium</h1>
+    <button className='hover:shadow-lg bg-red-700 col-start-1 md:col-end-2 col-end-5 text-white rounded-lg self-start  shadow-md lg:h-10 h-12 w-24 row-start-2 sm:w-auto relative z-[3] '>Get updated</button>
+    <p className='text-white text-sm  md:col-span-2 col-span-4 col-start-1 md:col-start-2 sm: self-start relative z-[3] row-start-2 sm:mt-3 mt-16  '>Only 45/month in the first year.</p>
 
       
     </div>

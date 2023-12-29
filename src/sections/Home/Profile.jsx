@@ -4,7 +4,7 @@ import ProfileValues from '../../components/ProfileValues';
 
 const Profile = () => {
 
-    const {userCred,setUserCred}=useContext(WatchlistContext);
+    const {userCred,setUserCred,setMembership,membership,setProfileImg,profileImg}=useContext(WatchlistContext);
 
 
     console.log(userCred);
@@ -24,12 +24,14 @@ const Profile = () => {
 <hr className='w-full border-1  bg-black border-black ' />
 
 
-<ProfileValues value={userCred.displayName}  name={"Name"} />
-<ProfileValues value={userCred.email}  name={"Email"} />
+<ProfileValues value={ userCred.displayName }  name={"Name"} />
+<ProfileValues value={ userCred.email}  name={"Email"} />
 
-<ProfileValues value={userCred.password}  name={"Password"} />
-<ProfileValues value={"Standard Plan"}  name={"Membership"} />  
-<ProfileValues value={userCred.photoUrl}  name={"Photo"} />
+{/*membership*/}
+
+
+<ProfileValues value={membership}  name={"Membership"} />  
+
 
 
 

@@ -3,9 +3,9 @@ import laptop from '../../assets/images/watch on laptop.png'
 
 const Watch = () => {
   return (
-    <div className='w-full bg-black flex sm:flex-row flex-col gap-20 relative items-center sm:ml-20 ml-0 justify-center sm:p-10 leading-tight p-10 '>
+    <div className='w-full bg-black flex sm:flex-row flex-col gap-20 md:gap-28 relative items-center sm:ml-20 ml-0 justify-center  sm:p-10 leading-tight p-10 md:p-9 '>
 
-    <div className="flex flex-col gap-4 sm:text-left text-center text-white sm:w-[20%] w-full ">
+    <div className="flex flex-col gap-4  sm:text-left text-center text-white sm:w-[20%] w-full md:w-[300px] ">
     <h1 className='text-[50px] font-bold'>Watch everywhere</h1>
     <p className='text-[20px]'>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
     </div>

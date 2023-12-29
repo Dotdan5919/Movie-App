@@ -15,7 +15,7 @@ import Watch from '../sections/Welcome/Watch'
 const NavBarLoggedIn = () => {
   const [notificationActive,setNotificationActive]=useState(false);
   const [userNav,setUserNav]=useState(false);
-  const {WatchlistArray,colRef}=useContext(WatchlistContext);
+  const {WatchlistArray,colRef,setProfileImg,profileImg,setMembership,membership}=useContext(WatchlistContext);
 
 
   
@@ -62,8 +62,8 @@ navigate("/signin")
 
   }
 
-const[profileImg,setProfileImg]=useState();
-// let ProfileImg;
+
+
 
 
 
@@ -77,25 +77,25 @@ const[profileImg,setProfileImg]=useState();
         
         console.log("i logged in navbarLoggedIn");
 
-const q=query(colRef,where("email","==",user.email))
+// const q=query(colRef,where("email","==",user.email));
 
-onSnapshot(q,(snapshot)=>{
+// onSnapshot(q,(snapshot)=>{
 
-  let userInfo=[];
-  snapshot.docs.forEach((doc)=>{
+//   let userInfo=[];
+//   snapshot.docs.forEach((doc)=>{
 
-    userInfo.push({...doc.data(),id:doc.id})
+//     userInfo.push({...doc.data(),id:doc.id})
 
    
 
-  })
+//   })
 
-  setProfileImg(userInfo[0].Picture);
+//   setProfileImg(userInfo[0].Picture);
 
 
-console.log(profileImg)
+// console.log(profileImg)
 
-})
+// })
 
           
         }

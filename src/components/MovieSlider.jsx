@@ -48,10 +48,10 @@ const MovieSlider = (prop) => {
     <div className="flex flex-col h-fit gap-5 sm:col-start-4 sm:row-start-3 col-start-1 w-fit row-start-4 bg-opacity-10 relative" >
     <h1 className='text-white font-bold z-[3]'>Hot movies</h1>
     <IoIosArrowDropleft onClick={()=>handleClick("left")}  className='absolute text-white flex bottom-[35%] left-0     text-5xl z-30 hover:scale-[1.2] transition-all duration-700'  />
-    <IoIosArrowDropright onClick={()=>handleClick("right")}  className='absolute text-white flex bottom-[35%]  right-[7%]    text-5xl z-30 hover:scale-[1.2] transition-all duration-700' />
+    <IoIosArrowDropright onClick={()=>handleClick("right")}  className='absolute text-white flex bottom-[35%]  lg:right-[4%]  md:right-[49%]  sm:left-auto left-[32%]  text-5xl z-30 hover:scale-[1.2] transition-all duration-700' />
     
     <div className="absolute bg-gradient-to-l from-transparent  to-black  opacity-[.2] my-10 w-20 h-[75%] z-[1]"></div>
-    <div className="absolute bg-gradient-to-r from-transparent right-[7%] to-black  opacity-[.9] my-10 w-20 h-[75%] z-[1]"></div>
+    <div className="absolute bg-gradient-to-r from-transparent lg:right-[0%] md:right-[49%] sm:left-auto left-[34%] to-black  opacity-[.9] my-10 w-20 h-[75%] z-[1]"></div>
    
     <div className='w-[900px]  grid grid-flow-col relative gap-7 h-fit p-10 overflow-scroll' id="slider">
     {

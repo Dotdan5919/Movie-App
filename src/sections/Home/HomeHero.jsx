@@ -77,7 +77,7 @@ useEffect(()=>
     </div>
 <div className="grid relative grid-cols-7 grid-rows-6 grid-rows-9    p-10 leading-tight z-10  h-[100%] pt-32">
     <h1 className=' text-white sm:text-[50px] text-[35px] font-bold  col-start-1 row-start-1  h-16  col-span-9 self-center  '> {MovieName}</h1>
-        <p className='text-white col-start-1 row-span-1 sm:col-span-3 lg:col-span-2 md:col-span-4 col-span-9 row-start-2  leading-5 text-[12px]  '>{MovieDescription}</p>
+        < p className='text-white col-start-1 row-span-1 sm:col-span-3 lg:col-span-2 md:col-span-4 col-span-9 row-start-2  leading-5 text-[12px]  '>{MovieDescription}</p>
         <button className='bg-red-600 text-white sm:h-20   col-start-1  row-start-3 sm:col-span-1 col-span-2 h-16 rounded-xl shadow-md hover:bg-red-800 sm:self-end  self-start'>Watch now</button>
         <div className="rounded-full w-10 h-10 flex items-center justify-center bg-white sm:row-start-5 sm:col-start-1 col-start-4 row-start-3 row-span-2 self-start ">
         
