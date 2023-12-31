@@ -32,7 +32,7 @@ import {getFirestore,collection,addDoc,getDocs,query,where,onSnapshot} from 'fir
 const router=createBrowserRouter(
   
 
-// 
+
   createRoutesFromElements(
     <>
     <Route path='/' element={ <AuthLayout/> }>
