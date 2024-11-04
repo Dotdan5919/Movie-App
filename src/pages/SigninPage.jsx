@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/loginForm'
 import { initializeApp } from "firebase/app";
 
 import {getAuth,createUserWithEmailAndPassword,signOut,deleteUser,signInWithEmailAndPassword} from "firebase/auth";
