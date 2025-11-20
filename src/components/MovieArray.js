@@ -53,7 +53,7 @@ export const Moviearray = ()=>
 {
     MovieName:'Squid Games',
     Source:require("../assets/images/SquidGames.jpg"),
-    VideoSource:require("../assets/videos/Squidgames.mp4"),
+    VideoSource:require("../assets/videos/SquidGames.mp4"),
     id:4,
     MovieThumbnail:require("../assets/images/SquidGamesT.jpg"),
     Description:"Squid Game is a South Korean survival drama that follows contestants participating in deadly children's games for a chance to win a massive cash prize. "
